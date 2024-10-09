@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Moderat Extended';
+    src: url('fonts/Moderat-Extended-Black.eot');
+    src: local('fonts/Moderat Extended Black'), local('fonts/Moderat-Extended-Black'),
+        url('fonts/Moderat-Extended-Black.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Moderat-Extended-Black.woff2') format('woff2'),
+        url('fonts/Moderat-Extended-Black.woff') format('woff'),
+        url('fonts/Moderat-Extended-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderat Extended';
+    src: url('fonts/Moderat-Extended-Thin.eot');
+    src: local('fonts/Moderat Extended Thin'), local('fonts/Moderat-Extended-Thin'),
+        url('fonts/Moderat-Extended-Thin.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Moderat-Extended-Thin.woff2') format('woff2'),
+        url('fonts/Moderat-Extended-Thin.woff') format('woff'),
+        url('fonts/Moderat-Extended-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderat Extended';
+    src: url('fonts/Moderat-Extended-Light-Italic.eot');
+    src: local('fonts/Moderat Extended Light Italic'), local('fonts/Moderat-Extended-Light-Italic'),
+        url('fonts/Moderat-Extended-Light-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Moderat-Extended-Light-Italic.woff2') format('woff2'),
+        url('fonts/Moderat-Extended-Light-Italic.woff') format('woff'),
+        url('fonts/Moderat-Extended-Light-Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Moderat Extended';
+    src: url('fonts/Moderat-Extended-Regular.eot');
+    src: local('fonts/Moderat Extended Regular'), local('fonts/Moderat-Extended-Regular'),
+        url('fonts/Moderat-Extended-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Moderat-Extended-Regular.woff2') format('woff2'),
+        url('fonts/Moderat-Extended-Regular.woff') format('woff'),
+        url('fonts/Moderat-Extended-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderat Extended';
+    src: url('fonts/Moderat-Extended-Bold.eot');
+    src: local('fonts/Moderat Extended Bold'), local('fonts/Moderat-Extended-Bold'),
+        url('fonts/Moderat-Extended-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Moderat-Extended-Bold.woff2') format('woff2'),
+        url('fonts/Moderat-Extended-Bold.woff') format('woff'),
+        url('fonts/Moderat-Extended-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderat Extended';
+    src: url('fonts/Moderat-Extended-Regular-Italic.eot');
+    src: local('fonts/Moderat Extended Regular Italic'), local('fonts/Moderat-Extended-Regular-Italic'),
+        url('fonts/Moderat-Extended-Regular-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Moderat-Extended-Regular-Italic.woff2') format('woff2'),
+        url('fonts/Moderat-Extended-Regular-Italic.woff') format('woff'),
+        url('fonts/Moderat-Extended-Regular-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    font-family: 'Moderat Extended', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'Moderat Extended';
+    font-weight: 900; /* Black */
+}
+
+p {
+    font-family: 'Moderat Extended';
+    font-weight: 300; /* Light */
+    font-style: italic; /* Italic */
+}

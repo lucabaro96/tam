@@ -4,90 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Potremo collegare qui il foglio di stile in futuro -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="font.css"> 
 </head>
 <body>
 
     <!-- Barra di Navigazione -->
     <nav>
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <div class="hamburger" id="hamburger">&#9776;</div> <!-- Icona hamburger -->
+            <ul class="nav-links" id="navLinks">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle"><span class="dropdown-icon">&#9660;</span>SETTORI</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#industria">INDUSTRIA</a></li>
+                        <li><a href="#sport">SPORT</a></li>
+                        <li><a href="#advertising">ADVERTISING</a></li>
+                        <li><a href="#outdoor">OUTDOOR</a></li>
+                        <li><a href="#trasporti">TRASPORTI</a></li>
+                    </ul>
+                </li>
+                <li><a href="#servizi">SERVIZI</a></li>
+                <li><a href="#azienda">L'AZIENDA</a></li>
+                <li><a href="#preventivi">PREVENTIVI</a></li>
+                <li><a href="#contatti">CONTATTI</a></li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li class="dropdown">
-                <a href="#settori">SETTORI</a>
-                <ul class="dropdown-content">
-                    <li><a href="#industria">INDUSTRIA</a></li>
-                    <li><a href="#sport">SPORT</a></li>
-                    <li><a href="#advertising">ADVERTISING</a></li>
-                    <li><a href="#outdoor">OUTDOOR</a></li>
-                    <li><a href="#trasporti">TRASPORTI</a></li>
-                </ul>
-            </li>
-            <li><a href="#servizi">SERVIZI</a></li>
-            <li><a href="#azienda">L'AZIENDA</a></li>
-            <li><a href="#preventivi">PREVENTIVI</a></li>
-            <li><a href="#contatti">CONTATTI</a></li>
-        </ul>
     </nav>
 
     <!-- Copertina di pagina -->
     <header class="hero">
-        <div class="hero-text">
-            <h1>PVC SU MISURA PER OGNI ESIGENZA</h1>
-            <h3>Teloni, Industria, Trasporti, Sport, Outdoor & Advertising</h3>
-        </div>
-        <div class="hero-logo">
-            <img src="logo.png" alt="Logo" class="large-logo">
+        <div class="container">
+            <div class="hero-text">
+                <h1>PVC SU MISURA PER OGNI ESIGENZA</h1>
+                <h3>Teloni, Industria, Trasporti, Sport, Outdoor & Advertising</h3>
+            </div>
+            <div class="hero-logo">
+                <img src="logo.png" alt="Logo" class="large-logo">
+            </div>
         </div>
     </header>
 
     <!-- Seconda sezione: Settori -->
     <section id="settori">
-        <h2>Produciamo teloni in PVC su misura, adesivi e tanto altro!</h2>
-        <p>Scopri i settori su cui operiamo:</p>
-        <div class="settori-grid">
-            <div class="settore">Industria</div>
-            <div class="settore">Sport</div>
-            <div class="settore">Advertising</div>
-            <div class="settore">Outdoor</div>
-            <div class="settore">Trasporti</div>
+        <div class="container">
+            <h2>Produciamo teloni in PVC su misura, adesivi e tanto altro!</h2>
+            <p>Scopri i settori su cui operiamo:</p>
+            <div class="settori-grid">
+                <div class="settore">Industria</div>
+                <div class="settore">Sport</div>
+                <div class="settore">Advertising</div>
+                <div class="settore">Outdoor</div>
+                <div class="settore">Trasporti</div>
+            </div>
         </div>
     </section>
 
     <!-- Terza sezione: Servizi -->
     <section id="servizi">
-        <h2>I NOSTRI SERVIZI</h2>
-        <ul class="servizi-list">
-            <li>ASSISTENZA ON-SITE</li>
-            <li>MONTAGGIO ON-SITE</li>
-            <li>RIPARAZIONE E MANUTENZIONE</li>
-            <li>ACCESSORI E RICAMBI</li>
-        </ul>
+        <div class="container">
+            <h2>I NOSTRI SERVIZI</h2>
+            <ul class="servizi-list">
+                <li>ASSISTENZA ON-SITE</li>
+                <li>MONTAGGIO ON-SITE</li>
+                <li>RIPARAZIONE E MANUTENZIONE</li>
+                <li>ACCESSORI E RICAMBI</li>
+            </ul>
+        </div>
     </section>
 
     <!-- Quarta sezione: Cosa Utilizziamo -->
     <section id="materiali">
-        <h2>COSA UTILIZZIAMO</h2>
-        <div class="materiali">
-            <div class="materiale">
-                <h3>650 gr laccato</h3>
-                <p>Descrizione del materiale qui...</p>
-            </div>
-            <hr>
-            <div class="materiale">
-                <h3>900 gr panama</h3>
-                <p>Descrizione del materiale qui...</p>
+        <div class="container">
+            <h2>COSA UTILIZZIAMO</h2>
+            <div class="materiali">
+                <div class="materiale">
+                    <h3>650 gr laccato</h3>
+                    <p>Descrizione del materiale qui...</p>
+                </div>
+                <hr>
+                <div class="materiale">
+                    <h3>900 gr panama</h3>
+                    <p>Descrizione del materiale qui...</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Quinta sezione: Contatti -->
     <section id="contatti">
-        <div class="contatti-grid">
-            <div class="contatto">Richiedi un preventivo</div>
-            <div class="contatto">Lavora con noi</div>
-            <div class="contatto">Contattaci</div>
+        <div class="container">
+            <div class="contatti-grid">
+                <div class="contatto">Richiedi un preventivo</div>
+                <div class="contatto">Lavora con noi</div>
+                <div class="contatto">Contattaci</div>
+            </div>
         </div>
     </section>
 
@@ -95,6 +109,6 @@
     <footer>
         <!-- Contenuto del footer da aggiungere -->
     </footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
