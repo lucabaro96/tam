@@ -14,7 +14,6 @@
 /* Sfondi a piena larghezza */
 header.hero, section {
     width: 100%;
-    background-color: #f4f4f4; /* Colore di esempio per lo sfondo */
     padding: 60px 0;
 }
 
@@ -35,15 +34,9 @@ header.hero, section {
     border-radius: 5px;
 }
 
-/* Stile della barra di navigazione */
-nav {
-    background-color: #EEEDED;
-    padding: 15px 0;
-}
-
 .container {
     display: flex;
-    justify-content: space-between; /* Allinea logo a sinistra e menu a destra */
+    justify-content: space-between; 
     align-items: center;
 }
 
@@ -52,12 +45,14 @@ nav {
 nav {
     background-color: #EEEDED;
     height: 180px; /* Altezza fissa per la barra di navigazione */
-    padding-top: 30px; /* Spazio di 50px dal bordo superiore */
+    padding-top: 15px; /* Spazio di 50px dal bordo superiore */
 }
 
 
 .logo img {
-    width: 180px;
+    width: 120px;
+    position: relative;
+    z-index: 3;
 }
 
 /* Stile delle voci del menu */
@@ -128,6 +123,7 @@ nav {
 .dropdown-content li a {
     color: #E9531D;
     font-weight: normal;
+    font-size: 14px;
 }
 
 /* Nascondi il menu in modalità mobile */
@@ -135,58 +131,119 @@ nav {
     display: flex; /* Mantieni il flex per la vista desktop */
 }
 
-/* Aggiungi stili per il menu hamburger */
+
+/* Stile per l'icona hamburger */
 .hamburger {
-    display: none; /* Nascondi per desktop */
+    display: none; /* Mostra solo in mobile */
     cursor: pointer;
-    font-size: 24px; /* Dimensione dell'icona hamburger */
+    width: 30px;
+    height: 20px;
+    position: relative;
+    margin-top: -8px;
+    z-index: 3;
+}
+
+.hamburger .line {
+    width: 100%; /* Larghezza delle linee */
+    height: 1px; /* Altezza delle linee */
+    background-color: #E9531D;
+    margin-bottom: 4px; /* Spazio tra le linee */
+    transition: all 0.3s ease; /* Transizione per l'animazione */
+    position: absolute; /* Usa posizione assoluta per sovrapporle durante l'animazione */
+    left: 0;
+}
+
+/* Posiziona le linee */
+.hamburger .line:nth-child(1) {
+    top: 0; /* Prima linea in alto */
+}
+
+.hamburger .line:nth-child(2) {
+    top: 10px; /* Seconda linea al centro */
+}
+
+.hamburger .line:nth-child(3) {
+    top: 20px; /* Terza linea in basso */
+    width: 60%; /* Terza linea più corta */
+    margin-left: auto;
+}
+
+/* Stile animato quando l'hamburger è cliccato */
+.hamburger.menu-active .line:nth-child(1) {
+    transform: rotate(45deg); /* Prima linea ruotata */
+    top: 10px; /* Sposta la prima linea al centro */
+}
+
+.hamburger.menu-active .line:nth-child(2) {
+    transform: rotate(-45deg); /* Seconda linea ruotata */
+    top: 10px; /* Sposta la seconda linea al centro */
+}
+
+.hamburger.menu-active .line:nth-child(3) {
+    opacity: 0; /* Terza linea scompare */
+    width: 0px;
 }
 
 /* Stili per il menu in mobile */
 @media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+    
+    .dropdown {
+        margin-top: 50px;
+    }
+
     .nav-links {
+        box-sizing: border-box;
         display: none; /* Nascondi il menu */
         flex-direction: column; /* Imposta il menu in colonna */
         position: absolute; /* Posizione assoluta per il menu */
         top: 0; /* Posizione in alto */
         left: 0; /* Posizione a sinistra */
         width: 100%; /* Larghezza al 100% */
-        height: 100vh; /* Altezza al 100% della viewport */
+        height: 90vh; /* Altezza al 90% della viewport */
         background-color: #EEEDED; /* Colore di sfondo */
         z-index: 2; /* Assicurati che il menu si sovrapponga ad altri elementi */
-        padding-top: 50px; /* Spazio per il logo */
+        padding-top: 100px; /* Spazio per il logo */
     }
 
     .nav-links li {
-        text-align: center; /* Centra le voci del menu */
-        margin: 20px 0; /* Margine tra le voci del menu */
-    }
-
-    .hamburger {
-        display: block; /* Mostra l'icona hamburger */
-        position: absolute; /* Posizione assoluta per l'icona */
-        top: 20px; /* Margine dall'alto */
-        right: 20px; /* Margine dalla destra */
-        z-index: 3;
-    }
-
-    /* Mostra il menu quando è attivo */
-    .nav-active {
-        display: flex; /* Mostra il menu */
-        animation: slideIn 0.5s forwards; /* Animazione di ingresso */
-    }
-
-    /* Stili per il dropdown in mobile */
-    .dropdown-content {
-        max-height: 0; /* Nascondi il menu a tendina per default */
-        overflow: hidden; /* Nasconde il contenuto in eccesso */
-        background-color: #EEEDED; /* Colore di sfondo */
-        padding: 0; /* Rimuovi padding iniziale */
-        transition: max-height 0.5s ease, padding 0.5s ease; /* Transizione per max-height */
-        position: relative; /* Posizione relativa */
+        text-align: right; 
+        margin: 5px; /* Margine tra le voci del menu */
     }
     
-    /* Mostra il dropdown quando è attivo */
+    /* Mostra il menu quando è attivo */
+    .nav-active {
+        display: flex; 
+        animation: slideIn 0.5s ease-out;
+    }
+
+    .nav-inactive {
+        animation: slideOut 1s ease forwards;
+    }
+
+    .menu-active {
+        display: flex;
+    }
+
+    /* Gestione del dropdown in mobile */
+    .dropdown-content {
+        max-height: 0;
+        overflow: hidden;
+        background-color: #EEEDED;
+        padding: 0;
+        transition: max-height 0.5s ease, padding 0.5s ease;
+        position: relative;
+        opacity: 1;
+    }
+
+    .dropdown-content li {
+        padding: 2px 0px;
+        margin-right: -1px;
+    }
+
     .dropdown-active {
         max-height: 500px; /* Imposta un valore alto per la massima altezza quando visibile */
         padding: 10px 0; /* Aggiungi padding quando è attivo */
@@ -195,7 +252,6 @@ nav {
     .dropdown:hover .dropdown-icon {
         transform: none;
     }
-
     
 }
 
@@ -203,10 +259,48 @@ nav {
 @keyframes slideIn {
     from {
         transform: translateY(-100%); /* Inizia fuori dallo schermo */
+        opacity: 0; /* Inizia trasparente */
     }
     to {
         transform: translateY(0); /* Si muove nella posizione finale */
+        opacity: 1; /* Inizia trasparente */
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0); /* Inizia dalla posizione finale */
+        opacity: 1; /* Inizia visibile */
+    }
+    to {
+        transform: translateY(-100%); /* Si sposta fuori dallo schermo */
+        opacity: 0; /* Diventa invisibile */
     }
 }
 
 /*-----------------------*/
+
+/* Copertina di pagina */
+.hero {
+    background-color: #E9531D; /* Sfondo arancione */
+    padding: 60px 0; /* Padding per il contenuto */
+    text-align: center; /* Allineamento centrale */
+}
+
+.hero-text h1 {
+    color: white; /* Testo principale in bianco */
+    font-size: 2.5rem; /* Dimensione del testo principale */
+    margin-bottom: 10px; /* Margine inferiore */
+}
+
+.hero-text h3 {
+    color: white; /* Testo secondario in bianco */
+    font-size: 1.5rem; /* Dimensione del testo secondario */
+    margin-bottom: 20px; /* Margine inferiore */
+}
+
+.hero-logo img {
+    max-width: 100%; /* Mantieni il logo responsivo */
+    height: auto; /* Mantieni l'aspetto del logo */
+    mix-blend-mode: lighten; /* Applica la fusione in schiarisci */
+}
