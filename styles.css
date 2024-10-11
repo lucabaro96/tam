@@ -14,7 +14,6 @@
 /* Sfondi a piena larghezza */
 header.hero, section {
     width: 100%;
-    padding: 60px 0;
 }
 
 /* Griglie o sezioni specifiche */
@@ -24,17 +23,9 @@ header.hero, section {
     justify-content: space-between;
 }
 
-/* Settori */
-.settore, .contatto {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
 .container {
+    box-sizing: border-box;
+    padding: 0px 20px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -50,7 +41,7 @@ nav {
 
 
 .logo img {
-    width: 120px;
+    width: 180px;
     position: relative;
     z-index: 3;
 }
@@ -187,6 +178,10 @@ nav {
 /* Stili per il menu in mobile */
 @media (max-width: 768px) {
 
+    .logo img {
+        width: 125px;
+    }
+
     .hamburger {
         display: block;
     }
@@ -283,24 +278,417 @@ nav {
 /* Copertina di pagina */
 .hero {
     background-color: #E9531D; /* Sfondo arancione */
-    padding: 60px 0; /* Padding per il contenuto */
-    text-align: center; /* Allineamento centrale */
+    height: calc(100vh - 195px); /* Altezza dell'intero schermo meno la nav */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Layout della copertina */
+.hero .container {
+    display: flex;
+    justify-content: space-between; /* Testo a sinistra, video a destra */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Necessario per il posizionamento del video assoluto */
+}
+
+/* Testo grande a sinistra */
+.hero-text {
+    text-align: left; /* Testo allineato a sinistra */
+    flex: 1;
+    max-width: 67%; /* Limita la larghezza del blocco testo */
 }
 
 .hero-text h1 {
     color: white; /* Testo principale in bianco */
-    font-size: 2.5rem; /* Dimensione del testo principale */
-    margin-bottom: 10px; /* Margine inferiore */
+    font-size: 5rem; /* Aumentato ulteriormente il testo */
+    font-weight: 900;
+    margin-bottom: 60px;
+    line-height: 0.85; /* Ridotta l'interlinea */
+}
+
+.hero-line {
+    width: 50%; /* Riga sottile bianca */
+    border: 1px solid white;
+    margin: 60px 0;
 }
 
 .hero-text h3 {
-    color: white; /* Testo secondario in bianco */
-    font-size: 1.5rem; /* Dimensione del testo secondario */
-    margin-bottom: 20px; /* Margine inferiore */
+    color: white;
+    font-size: 1.2rem; /* Leggermente ridotto il sottotitolo */
+    font-weight: normal;
+    line-height: 1.3; /* Ridotta l'interlinea per il sottotitolo */
 }
 
-.hero-logo img {
-    max-width: 100%; /* Mantieni il logo responsivo */
-    height: auto; /* Mantieni l'aspetto del logo */
-    mix-blend-mode: lighten; /* Applica la fusione in schiarisci */
+/* Video a destra */
+.hero-logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Allinea il video a destra */
+    position: relative;
+    max-width: 33%;
+}
+
+.hero-logo video {
+    max-width: 500px; /* Larghezza massima del video */
+    height: auto;
+    mix-blend-mode: lighten; /* Fusione per schiarire */
+    position: absolute; /* Posizionamento assoluto per far uscire il video dalla sezione */
+    bottom: -500px; /* Fa uscire il video di 500px verso il basso */
+    right: 0; /* Mantiene il video allineato a destra */
+}
+
+.scroll-indicator {
+    position: absolute; /* Manteniamo come absolute */
+    bottom: 20px; /* Fissato a 30px dal fondo del contenitore */
+    color: white; /* Colore del testo */
+    font-size: 0.8rem; /* Dimensione del font */
+    z-index: 1; /* Assicura che sia visibile sopra altri elementi */
+    transition: all 0.3s ease; /* Aggiungi una transizione per un effetto più fluido */
+}
+
+.arrow {
+    margin-left: 5px; /* Spazio tra il testo e la freccia */
+    font-size: 1.5rem; /* Dimensione della freccia */
+}
+
+/* Media Queries per il responsive design */
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Permetti alla sezione di adattarsi in altezza */
+        padding-top: 20px;
+        flex-direction: column; /* Disposizione verticale per dispositivi mobili */
+    }
+
+    .hero .container {
+        flex-direction: column; /* Disporre gli elementi in colonna */
+        align-items: center; /* Centrare tutti gli elementi */
+        justify-content: center; /* Centrare anche in verticale */
+    }
+
+    .hero-text {
+        max-width: 100%; /* Permetti al testo di occupare l'intera larghezza */
+    }
+
+    .hero-text h1 {
+        font-size: 3rem; /* Ridimensiona il testo per schermi piccoli */
+        margin-bottom: 30px; /* Riduci il margine inferiore */
+    }
+
+    .hero-line {
+        width: 30%; /* Riduci la larghezza della linea */
+        margin: 30px 0;
+    }
+
+    .hero-text h3 {
+        font-size: 1rem; /* Ridimensiona il sottotitolo */
+    }
+
+    .hero-logo {
+        max-width: 100%; /* Occupare l'intera larghezza */
+        justify-content: center; /* Centra il video */
+        position: relative;
+    }
+
+    .hero-logo video {
+        position: relative; /* Rimuovi il posizionamento assoluto */
+        bottom: -60px; /* Mantieni il video che esce verso il basso di 30px */
+        max-width: 300px; /* Riduci la dimensione del video */
+    }
+
+    .scroll-indicator {
+        left: 20px; 
+    }
+}
+
+
+/*-----------------------*/
+
+/* Stile per la sezione Settori */
+#settori {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Sfondo grigio chiaro */
+}
+
+#settori .container {
+    display: flex; /* Assicurati che il contenitore sia un flexbox */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: start; /* Allinea a sinistra */
+}
+
+/* Stile per il titolo */
+#settori h2, #servizi h2, #materiali h2 {
+    color: #E9531D; /* Arancione */
+    font-size: 2rem; /* Grandezza del testo */
+    font-weight: 800;
+    margin-bottom: 10px; /* Spazio sotto il titolo */
+    line-height: 1;
+}
+
+/* Stile per il paragrafo */
+#settori p {
+    font-size: 1.2rem; /* Grandezza del testo */
+    margin-bottom: 20px; /* Spazio sotto il paragrafo */
+}
+
+/* Griglia per i settori */
+.settori-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Due colonne */
+    gap: 20px; /* Spazio tra i quadrati */
+    width: 100%; /* Occupare tutta la larghezza del contenitore */
+    margin: 0 auto; /* Centro la griglia */
+}
+
+/* Stile per i settori */
+.settore {
+    background-color: #E9531D; /* Arancione */
+    color: white; /* Colore del testo */
+    padding: 40px; /* Spazio interno */
+    border-radius: 8px; /* Angoli arrotondati */
+    text-align: center; /* Testo centrato */
+    font-size: 1.5rem; /* Grandezza del testo */
+    min-height: 400px; /* Altezza minima delle celle */
+    display: flex; /* Aggiungi display flex per centrare il contenuto */
+    flex-direction: column; /* Permette la disposizione verticale del contenuto */
+    justify-content: center; /* Centra verticalmente il contenuto */
+}
+
+/* Ultimo rettangolo per Trasporti */
+.settori-grid .settore:last-child {
+    grid-column: span 2; /* Occupa entrambe le colonne */
+    background-color: #E9531D; /* Arancione */
+    color: white; /* Colore del testo */
+    padding: 60px; /* Spazio interno maggiore */
+    font-size: 1.8rem; /* Grandezza del testo aumentata */
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .settori-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    #settori {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+
+/*-----------------------*/
+
+/* Stile per la sezione Servizi */
+#servizi {
+    box-sizing: border-box;
+    padding: 70px 0; /* Padding superiore e inferiore */
+    background-color: white; /* Sfondo grigio chiaro */
+}
+
+#servizi .container {
+    display: flex; /* Assicurati che il contenitore sia un flexbox */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: start; /* Allinea a sinistra */
+}
+
+#servizi h2 {
+    margin-bottom: 30px;
+}
+
+/* Lista dei servizi */
+.servizi-list {
+    width: 100%;
+    list-style: none; /* Rimuovi i pallini */
+}
+
+/* Stile per ogni voce della lista */
+.servizi-list li {
+    position: relative; /* Posizione relativa per il triangolo */
+    border-bottom: 1px solid #E9531D; /* Bordo sottostante */
+    padding: 20px 80px; /* Padding, con spazio a sinistra per il logo */
+    margin-bottom: 20px; /* Spazio tra le voci */
+    font-size: 1.2rem; /* Dimensione del testo */
+    color: #333; /* Colore del testo */
+    display: block; /* Usa flexbox per allineare logo e testo */
+    align-items: center; /* Centra verticalmente */
+    cursor: pointer;
+}
+
+/* Stile per il logo */
+.servizio-logo {
+    position: absolute; /* Posizione assoluta per il logo */
+    left: 0px; /* Margine a sinistra */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Allinea al centro esatto */
+    width: 40px; /* Larghezza del logo */
+    height: auto; /* Mantieni le proporzioni */
+}
+.servizio-item {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Triangolo */
+.triangolo {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent; /* Triangolo verso destra */
+    border-right: 8px solid transparent;
+    border-top: 8px solid #E9531D; /* Colore del triangolo */
+    position: absolute;
+    right: 0px; /* Margine a destra */
+    bottom: 20px; /* Sposta verso il basso di 10px sopra la linea */
+    transform: rotate(-45deg); /* Ruota il triangolo di 45 gradi */
+}
+
+.servizio-contenuto {
+    display: block; /* Cambia da 'none' a 'block' per gestire l'altezza */
+    max-height: 0; /* Nasconde il contenuto */
+    overflow: hidden; /* Nasconde l'overflow */
+    transition: max-height 0.5s ease-in-out; /* Aggiunge la transizione */
+    width: 100%; /* Mantiene la larghezza al 100% */
+    font-size: 1rem;
+}
+
+.servizio-contenuto.open {
+    max-height: 200px; /* Imposta un'altezza massima per il contenuto espanso (regola in base alle tue esigenze) */
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .servizi-list li {
+        font-size: 1rem; /* Riduci la dimensione del testo per dispositivi mobili */
+        padding: 15px 15px 15px 45px; /* Riduci il padding */
+    }
+
+    .servizio-logo {
+        width: 30px; /* Riduci la dimensione del logo per dispositivi mobili */
+    }
+
+    .triangolo {
+        border-left-width: 8px; /* Riduci la larghezza del triangolo */
+        border-right-width: 8px;
+        border-top-width: 8px; /* Riduci la dimensione del triangolo */
+    }
+}
+
+
+/*-----------------------*/
+
+/* Stile per la sezione Cosa Utilizziamo */
+#materiali {
+    background-color: black; /* Sfondo nero */
+    color: white; /* Colore del testo bianco */
+    padding: 70px 0; /* Padding superiore e inferiore */
+}
+
+#materiali .container {
+    display: flex; /* Assicurati che il contenitore sia un flexbox */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: start; /* Allinea a sinistra */
+}
+
+#materiali h2 {
+    color: white; /* Titolo in bianco */
+    margin-bottom: 30px;
+}
+
+.materiali {
+    width: 100%;
+}
+
+.materiale {
+    position: relative; /* Per il bordo sotto */
+    padding-bottom: 40px; 
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.materiale h3 {
+    color: #E9531D; /* Colore arancione per gli h3 */
+    margin: 10px 0; /* Margine superiore e inferiore per il titolo */
+}
+
+.materiale p {
+    width: 60%;
+}
+
+/* Bordo arancione sotto ogni sezione materiale */
+.materiale::after {
+    content: ""; /* Crea un pseudo-elemento */
+    position: absolute; /* Posizionamento assoluto */
+    left: 0; /* Allinea a sinistra */
+    right: 0; /* Allinea a destra */
+    bottom: 0; /* Allinea al fondo dell'elemento */
+    height: 1px; /* Altezza del bordo */
+    background-color: #E9531D; /* Colore del bordo */
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .materiale {
+        display: block;   
+    }
+
+    .materiale p {
+        width: 100%;
+    }
+}
+
+
+/*-----------------------*/
+
+/* Stile per la sezione Contatti */
+#contatti {
+    padding: 70px 0; /* Padding superiore e inferiore */
+    background-color: #f9f9f9; /* Sfondo grigio chiaro */
+}
+
+#contatti .container {
+    display: flex; /* Assicurati che il contenitore sia un flexbox */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: start; /* Allinea a sinistra */
+}
+
+.contatti-grid {
+    display: grid; /* Utilizza flexbox per la disposizione */
+    flex-direction: column; /* Disposizione verticale */
+    align-items: center; /* Centra gli elementi orizzontalmente */
+}
+
+.contatto {
+    border: 1px solid #E9531D; /* Bordo arancione */
+    max-width: 500px; /* Larghezza massima del container */
+    height: 200px; /* Altezza di 200px */
+    display: flex; /* Usa flexbox per centrare il testo */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 20px; /* Margine inferiore per distanziare gli elementi */
+}
+
+/* Stile per i primi due contatti in coppia */
+.contatti-grid > :nth-child(1),
+.contatti-grid > :nth-child(2) {
+    flex: 1; /* Riempi lo spazio disponibile */
+    margin-right: 10px; /* Spazio tra i due contatti */
+}
+
+/* Rimuovi margine a destra per l'ultimo elemento */
+.contatti-grid > :nth-child(2) {
+    margin-right: 0; /* Nessun margine a destra per l'ultimo elemento */
 }
