@@ -11,7 +11,7 @@
 
 /* Contenitore centrale con larghezza massima */
 .container {
-    max-width: 1366px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 15px; /* Padding per evitare che tocchi i bordi */
 }
@@ -720,7 +720,7 @@ nav {
 footer {
     background-color: #E9531D; /* Colore di sfondo */
     color: white; /* Colore del testo */
-    padding: 70px 0px 10px 0px; /* Padding sopra e sotto */
+    padding: 140px 0px 10px 0px; /* Padding sopra e sotto */
 }
 
 footer p {
@@ -748,7 +748,7 @@ footer p {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px; /* Spazio tra le colonne */
-    margin: 20px 0; /* Margine sopra e sotto le colonne */
+    margin: 70px 0; /* Margine sopra e sotto le colonne */
 }
 
 .footer-column:first-child {
@@ -760,11 +760,7 @@ footer p {
     margin-bottom: 41px;
 }
 
-.footer-column:nth-child(2) p, .footer-column:nth-child(3) p {
-    margin-bottom: 30px;
-}
-
-.footer-column:nth-child(4) p {
+.footer-column:nth-child(2) p, .footer-column:nth-child(3) p, .footer-column:nth-child(4) p {
     margin-bottom: 30px;
 }
 
@@ -789,8 +785,10 @@ footer p {
     display: flex; /* Usa flexbox per la disposizione */
     justify-content: space-between; /* Spazia tra i contenuti */
     align-items: center; /* Allinea verticalmente al centro */
-    padding: 40px 0; /* Padding sopra e sotto per dare un po' di spazio */
+    padding: 70px 0; /* Padding sopra e sotto per dare un po' di spazio */
     border-top: 1px solid white; /* Aggiungi una riga superiore se necessario */
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .footer-left {
@@ -804,7 +802,6 @@ footer p {
 
 .footer-right p {
     margin: 0; /* Rimuovi margini per un miglior allineamento */
-    font-size: 14px; /* Dimensione del font */
     cursor: pointer; /* Cambia il cursore per indicare che è cliccabile */
 }
 
@@ -812,9 +809,18 @@ footer p {
     text-decoration: underline; /* Sottolinea al passaggio del mouse */
 }
 
+.social-logos img {
+    margin-right: 10px;
+}
+
 /* Responsività */
 @media (max-width: 768px) {
     .footer-column:first-child {
         max-width: 100%;
+    }
+
+    .footer-column:nth-child(4) p:last-child {
+        margin-top: 30px;
+        margin-bottom: 0px;
     }
 }
