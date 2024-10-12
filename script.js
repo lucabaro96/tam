@@ -62,3 +62,41 @@ document.querySelectorAll('.servizio-item').forEach(item => {
         });
     });
 });
+
+
+// Pulsante per tornare su
+window.onscroll = function() {
+    var scrollTopButton = document.getElementById("scrollTopButton");
+    var yOffset = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Mostra il pulsante quando si scrolla oltre i 300px
+    if (yOffset > 300) {
+        scrollTopButton.classList.add("visible"); // Aggiunge la classe "visible"
+    } else {
+        scrollTopButton.classList.remove("visible"); // Rimuove la classe "visible"
+    }
+
+    // Rileva quando il bottone è sopra una sezione arancione e cambia colore
+    var orangeSections = document.querySelectorAll('.hero, footer'); // Aggiorna con le sezioni arancioni del tuo sito
+    var isOverOrangeSection = Array.from(orangeSections).some(function(section) {
+        var rect = section.getBoundingClientRect();
+        return (
+            rect.top < window.innerHeight &&
+            rect.bottom > 0
+        );
+    });
+
+    if (isOverOrangeSection) {
+        scrollTopButton.classList.add("white");
+    } else {
+        scrollTopButton.classList.remove("white");
+    }
+};
+
+// Aggiungi l'evento click per scrollare in cima
+document.getElementById("scrollTopButton").addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});

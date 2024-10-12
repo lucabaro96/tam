@@ -363,6 +363,10 @@ nav {
 
 /* Media Queries per il responsive design */
 @media (max-width: 768px) {
+    nav {
+        height: 120px; /* Altezza fissa per la barra di navigazione */
+    }
+    
     .hero {
         height: auto; /* Permetti alla sezione di adattarsi in altezza */
         padding-top: 20px;
@@ -823,4 +827,39 @@ footer p {
         margin-top: 30px;
         margin-bottom: 0px;
     }
+}
+
+/* Stile base del pulsante */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent; /* Sfondo trasparente */
+    color: #E9531D; /* Colore freccia arancione */
+    border: 2px solid #E9531D; /* Bordo arancione */
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+    opacity: 0; /* Inizialmente invisibile */
+    transition: opacity 0.5s ease; /* Transizione per apparizione e scomparsa */
+    pointer-events: none; /* Disabilita clic quando è invisibile */
+}
+
+/* Stile del pulsante quando è visibile */
+.scroll-to-top.visible {
+    opacity: 1; /* Completamente visibile */
+    pointer-events: auto; /* Abilita clic quando visibile */
+}
+
+/* Cambio di stile quando il pulsante è sopra sezioni arancioni */
+.scroll-to-top.white {
+    color: white; /* Freccia bianca */
+    border-color: white; /* Bordo bianco */
+}
+
+/* Cambio del colore al passaggio del mouse (hover) */
+.scroll-to-top:hover {
+    background-color: rgba(233, 83, 29, 0.1); /* Leggero sfondo trasparente con arancione */
 }
