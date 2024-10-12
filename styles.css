@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    scroll-behavior: smooth;
 }
 
 /* Contenitore centrale con larghezza massima */
@@ -416,7 +417,7 @@ nav {
     background-color: #f9f9f9; /* Sfondo grigio chiaro */
 }
 
-#settori .container {
+#settori .container, #contatti .container, #servizi .container, #materiali .container {
     display: flex; /* Assicurati che il contenitore sia un flexbox */
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
@@ -491,13 +492,6 @@ nav {
     box-sizing: border-box;
     padding: 70px 0; /* Padding superiore e inferiore */
     background-color: white; /* Sfondo grigio chiaro */
-}
-
-#servizi .container {
-    display: flex; /* Assicurati che il contenitore sia un flexbox */
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: start; /* Allinea a sinistra */
 }
 
 #servizi h2 {
@@ -593,13 +587,6 @@ nav {
     padding: 70px 0; /* Padding superiore e inferiore */
 }
 
-#materiali .container {
-    display: flex; /* Assicurati che il contenitore sia un flexbox */
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: start; /* Allinea a sinistra */
-}
-
 #materiali h2 {
     color: white; /* Titolo in bianco */
     margin-bottom: 30px;
@@ -625,6 +612,7 @@ nav {
 
 .materiale p {
     width: 60%;
+    flex-shrink: 0;
 }
 
 /* Bordo arancione sotto ogni sezione materiale */
@@ -658,37 +646,57 @@ nav {
     background-color: #f9f9f9; /* Sfondo grigio chiaro */
 }
 
-#contatti .container {
-    display: flex; /* Assicurati che il contenitore sia un flexbox */
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: start; /* Allinea a sinistra */
-}
-
 .contatti-grid {
-    display: grid; /* Utilizza flexbox per la disposizione */
-    flex-direction: column; /* Disposizione verticale */
-    align-items: center; /* Centra gli elementi orizzontalmente */
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* Due colonne per "Richiedi un preventivo" e "Lavora con noi" */
+    gap: 30px; /* Spazio tra le colonne */
+    justify-items: center; /* Centra gli elementi orizzontalmente */
+    margin-bottom: 40px; /* Spazio inferiore per distanziare la riga successiva */
 }
 
 .contatto {
+    position: relative; /* Necessario per posizionare il triangolo */
+    box-sizing: border-box;
     border: 1px solid #E9531D; /* Bordo arancione */
-    max-width: 500px; /* Larghezza massima del container */
+    width: 100%; /* Larghezza al 100% della colonna */
     height: 200px; /* Altezza di 200px */
-    display: flex; /* Usa flexbox per centrare il testo */
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
-    margin-bottom: 20px; /* Margine inferiore per distanziare gli elementi */
+    padding: 20px;
+    font-size: 1.8em; /* Aumenta la dimensione del testo */
+    color: #E9531D; /* Colore arancione */
+    font-weight: bold; /* Testo in grassetto */
+    border-radius: 8px; /* Angoli arrotondati */
+    transition: 0.5s ease-out;
 }
 
-/* Stile per i primi due contatti in coppia */
-.contatti-grid > :nth-child(1),
-.contatti-grid > :nth-child(2) {
-    flex: 1; /* Riempi lo spazio disponibile */
-    margin-right: 10px; /* Spazio tra i due contatti */
+.contatto .triangolo {
+    bottom: 19px;
+    right: 15px;
 }
 
-/* Rimuovi margine a destra per l'ultimo elemento */
-.contatti-grid > :nth-child(2) {
-    margin-right: 0; /* Nessun margine a destra per l'ultimo elemento */
+/* Stile specifico per "Contattaci" */
+#contatti .contatto:last-child {
+    grid-column: span 2; /* Fa sì che "Contattaci" occupi entrambe le colonne */
+    max-width: 100%; /* Estendi la larghezza massima */
+}
+
+/* Hover che inverte i colori */
+.contatto:hover {
+    background-color: #E9531D; /* Sfondo arancione */
+    color: #fff; /* Testo bianco */
+}
+
+.contatto:hover .triangolo {
+    border-left: 8px solid transparent; /* Triangolo verso destra */
+    border-right: 8px solid transparent;
+    border-top: 8px solid#f9f9f9; /* Colore del triangolo */
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .contatti-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
