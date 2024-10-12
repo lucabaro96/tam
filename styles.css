@@ -1,3 +1,7 @@
+:root {
+    --colore-primario: #E9531D; /* Definisci il colore primario come variabile */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -60,7 +64,7 @@ nav {
 }
 
 .nav-links li a {
-    color: #E9531D;
+    color: var(--colore-primario);
     font-weight: normal;
     font-size: 15px;
     text-decoration: none;
@@ -113,7 +117,7 @@ nav {
 }
 
 .dropdown-content li a {
-    color: #E9531D;
+    color: var(--colore-primario);
     font-weight: normal;
     font-size: 14px;
 }
@@ -138,7 +142,7 @@ nav {
 .hamburger .line {
     width: 100%; /* Larghezza delle linee */
     height: 1px; /* Altezza delle linee */
-    background-color: #E9531D;
+    background-color: var(--colore-primario);
     margin-bottom: 4px; /* Spazio tra le linee */
     transition: all 0.3s ease; /* Transizione per l'animazione */
     position: absolute; /* Usa posizione assoluta per sovrapporle durante l'animazione */
@@ -278,7 +282,7 @@ nav {
 
 /* Copertina di pagina */
 .hero {
-    background-color: #E9531D; /* Sfondo arancione */
+    background-color: var(--colore-primario); /* Sfondo arancione */
     height: calc(100vh - 195px); /* Altezza dell'intero schermo meno la nav */
     display: flex;
     justify-content: center;
@@ -417,7 +421,7 @@ nav {
     background-color: #f9f9f9; /* Sfondo grigio chiaro */
 }
 
-#settori .container, #contatti .container, #servizi .container, #materiali .container {
+#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container {
     display: flex; /* Assicurati che il contenitore sia un flexbox */
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
@@ -426,7 +430,7 @@ nav {
 
 /* Stile per il titolo */
 #settori h2, #servizi h2, #materiali h2 {
-    color: #E9531D; /* Arancione */
+    color: var(--colore-primario); /* Arancione */
     font-size: 2rem; /* Grandezza del testo */
     font-weight: 800;
     margin-bottom: 10px; /* Spazio sotto il titolo */
@@ -450,7 +454,7 @@ nav {
 
 /* Stile per i settori */
 .settore {
-    background-color: #E9531D; /* Arancione */
+    background-color: var(--colore-primario); /* Arancione */
     color: white; /* Colore del testo */
     padding: 40px; /* Spazio interno */
     border-radius: 8px; /* Angoli arrotondati */
@@ -465,7 +469,7 @@ nav {
 /* Ultimo rettangolo per Trasporti */
 .settori-grid .settore:last-child {
     grid-column: span 2; /* Occupa entrambe le colonne */
-    background-color: #E9531D; /* Arancione */
+    background-color: var(--colore-primario); /* Arancione */
     color: white; /* Colore del testo */
     padding: 60px; /* Spazio interno maggiore */
     font-size: 1.8rem; /* Grandezza del testo aumentata */
@@ -507,7 +511,7 @@ nav {
 /* Stile per ogni voce della lista */
 .servizi-list li {
     position: relative; /* Posizione relativa per il triangolo */
-    border-bottom: 1px solid #E9531D; /* Bordo sottostante */
+    border-bottom: 1px solid var(--colore-primario); /* Bordo sottostante */
     padding: 20px 80px; /* Padding, con spazio a sinistra per il logo */
     margin-bottom: 20px; /* Spazio tra le voci */
     font-size: 1.2rem; /* Dimensione del testo */
@@ -539,7 +543,7 @@ nav {
     height: 0;
     border-left: 8px solid transparent; /* Triangolo verso destra */
     border-right: 8px solid transparent;
-    border-top: 8px solid #E9531D; /* Colore del triangolo */
+    border-top: 8px solid var(--colore-primario); /* Colore del triangolo */
     position: absolute;
     right: 0px; /* Margine a destra */
     bottom: 20px; /* Sposta verso il basso di 10px sopra la linea */
@@ -584,7 +588,7 @@ nav {
 #materiali {
     background-color: black; /* Sfondo nero */
     color: white; /* Colore del testo bianco */
-    padding: 70px 0; /* Padding superiore e inferiore */
+    padding: 70px 0px 20px; /* Padding superiore e inferiore */
 }
 
 #materiali h2 {
@@ -606,7 +610,7 @@ nav {
 }
 
 .materiale h3 {
-    color: #E9531D; /* Colore arancione per gli h3 */
+    color: var(--colore-primario); /* Colore arancione per gli h3 */
     margin: 10px 0; /* Margine superiore e inferiore per il titolo */
 }
 
@@ -623,7 +627,13 @@ nav {
     right: 0; /* Allinea a destra */
     bottom: 0; /* Allinea al fondo dell'elemento */
     height: 1px; /* Altezza del bordo */
-    background-color: #E9531D; /* Colore del bordo */
+    background-color: var(--colore-primario); /* Colore del bordo */
+}
+
+.euroclass-info {
+    margin-top: 70px; /* Spazio superiore */
+    font-size: 0.9em; /* Dimensione del font */
+    color: var(--colore-primario); /* Colore del testo */
 }
 
 /* Responsività */
@@ -658,15 +668,16 @@ nav {
 .contatto {
     position: relative; /* Necessario per posizionare il triangolo */
     box-sizing: border-box;
-    border: 1px solid #E9531D; /* Bordo arancione */
+    border: 1px solid var(--colore-primario); /* Bordo arancione */
     width: 100%; /* Larghezza al 100% della colonna */
     height: 200px; /* Altezza di 200px */
     padding: 20px;
     font-size: 1.8em; /* Aumenta la dimensione del testo */
-    color: #E9531D; /* Colore arancione */
+    color: var(--colore-primario); /* Colore arancione */
     font-weight: bold; /* Testo in grassetto */
     border-radius: 8px; /* Angoli arrotondati */
     transition: 0.5s ease-out;
+    text-decoration: none; /* Rimuovi il sottolineato */
 }
 
 .contatto .triangolo {
@@ -682,7 +693,7 @@ nav {
 
 /* Hover che inverte i colori */
 .contatto:hover {
-    background-color: #E9531D; /* Sfondo arancione */
+    background-color: var(--colore-primario); /* Sfondo arancione */
     color: #fff; /* Testo bianco */
 }
 
@@ -698,5 +709,112 @@ nav {
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+}
+
+
+/*-----------------------*/
+
+
+/* Stile per la sezione Footer */
+footer {
+    background-color: #E9531D; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    padding: 70px 0px 10px 0px; /* Padding sopra e sotto */
+}
+
+footer p {
+    font-style: normal;
+}
+
+.footer-container {
+    width: 100%; /* Larghezza del footer */
+    margin: 0 auto; /* Centra il footer */
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+    text-align: left; /* Allinea il logo a sinistra */
+    filter: brightness(0) invert(1); /* Rende l'immagine completamente bianca */
+}
+
+.footer-logo img {
+    width: 180px;
+}
+
+.footer-columns {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Spazio tra le colonne */
+    margin: 20px 0; /* Margine sopra e sotto le colonne */
+}
+
+.footer-column:first-child {
+    max-width: 50%;
+    flex-shrink: 0;
+}
+
+.footer-column:first-child p {
+    margin-bottom: 41px;
+}
+
+.footer-column:nth-child(2) p, .footer-column:nth-child(3) p {
+    margin-bottom: 30px;
+}
+
+.footer-column:nth-child(4) p {
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+.footer-column:nth-child(4) {
+    display: flex; /* Rendi la quarta colonna un contenitore flessibile */
+    flex-direction: column; /* Disposizione verticale */
+    justify-content: space-between; /* Distribuisci lo spazio tra gli elementi */
+    
+}
+
+.footer-column:nth-child(4) p:last-child {
+    margin-top: auto; /* Spinge l'ultimo paragrafo verso il fondo */
+    margin-bottom: 46px;
+}
+
+.footer-bottom {
+    width: 100%;
+    display: flex; /* Usa flexbox per la disposizione */
+    justify-content: space-between; /* Spazia tra i contenuti */
+    align-items: center; /* Allinea verticalmente al centro */
+    padding: 40px 0; /* Padding sopra e sotto per dare un po' di spazio */
+    border-top: 1px solid white; /* Aggiungi una riga superiore se necessario */
+}
+
+.footer-left {
+    margin-left: 0; /* A sinistra */
+}
+
+.footer-right {
+    display: flex; /* Usa flexbox per i testi a destra */
+    gap: 20px; /* Spazio tra "Cookies" e "Privacy Policy" */
+}
+
+.footer-right p {
+    margin: 0; /* Rimuovi margini per un miglior allineamento */
+    font-size: 14px; /* Dimensione del font */
+    cursor: pointer; /* Cambia il cursore per indicare che è cliccabile */
+}
+
+.footer-right p:hover {
+    text-decoration: underline; /* Sottolinea al passaggio del mouse */
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .footer-column:first-child {
+        max-width: 100%;
     }
 }
