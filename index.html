@@ -6,6 +6,8 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="font.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
 <body>
 
@@ -191,6 +193,7 @@
 
     <!-- Footer -->
     <footer>
+        <section class="orange-bg">
         <div class="container">
             <div class="footer-logo">
                 <img src="images/logo.png" alt="Logo Bianco">
@@ -235,11 +238,20 @@
                 </div>
             </div>
         </div>
+    </section>
     </footer>
 
     <button id="scrollTopButton" class="scroll-to-top">
         ↑
     </button>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-buttons">
+            <p>Usiamo i cookie per migliorare la tua esperienza. <a href="/privacy-policy">Scopri di più</a>.</p>
+            <button id="accept-cookies" class="cookie-btn accept">Accetta</button>
+            <button id="reject-cookies" class="cookie-btn reject">Rifiuta</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

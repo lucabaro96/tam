@@ -722,7 +722,7 @@ nav {
 
 /* Stile per la sezione Footer */
 footer {
-    background-color: #E9531D; /* Colore di sfondo */
+    background-color: var(--colore-primario); /* Colore di sfondo */
     color: white; /* Colore del testo */
     padding: 140px 0px 10px 0px; /* Padding sopra e sotto */
 }
@@ -829,37 +829,118 @@ footer p {
     }
 }
 
-/* Stile base del pulsante */
-.scroll-to-top {
+/*-----------------------*/
+
+/* Stile base del pulsante Scroll to Top*/
+#scrollTopButton {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: transparent; /* Sfondo trasparente */
-    color: #E9531D; /* Colore freccia arancione */
-    border: 2px solid #E9531D; /* Bordo arancione */
-    padding: 15px 20px;
+    border: 1px solid var(--colore-primario); /* Colore del bordo arancione */
+    background: transparent; /* Nessuno sfondo */
+    color: var(--colore-primario); /* Freccia dello stesso colore del bordo */
+    padding: 15px 23px;
+    font-size: 24px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
+    transition: opacity 0.4s ease, visibility 0.4s ease, background-color 0.4s, border-color 0.4s, color 0.4s; /* Aggiunta transizione */
+    opacity: 0; /* Inizialmente nascosto */
+    visibility: hidden; /* Non visibile */
+}
+
+#scrollTopButton.visible {
+    opacity: 1; /* Visibile quando è attivo */
+    visibility: visible;
+}
+
+/* Stati normali per le sezioni */
+#scrollTopButton.on-light-bg {
+    border-color: var(--colore-primario); /* Bordo arancione */
+    color: var(--colore-primario); /* Freccia arancione */
+}
+
+#scrollTopButton.on-dark-bg {
+    border-color: #f9f9f9; /* Bordo bianco */
+    color: #f9f9f9; /* Freccia bianca */
+}
+
+#scrollTopButton.on-orange-bg {
+    border-color: #f9f9f9; /* Bordo bianco */
+    color: #f9f9f9; /* Freccia bianca */
+}
+
+/* Effetto hover: Riempie il pulsante con il colore del bordo e rende la freccia trasparente */
+#scrollTopButton.on-light-bg:hover {
+    background-color: var(--colore-primario); /* Sfondo arancione */
+    color: #f9f9f9; /* Freccia trasparente */
+}
+
+#scrollTopButton.on-dark-bg:hover {
+    background-color: #f9f9f9; /* Sfondo bianco */
+    color: black; /* Freccia trasparente */
+}
+
+#scrollTopButton.on-orange-bg:hover {
+    background-color: #f9f9f9; /* Sfondo bianco */
+    color: var(--colore-primario); /* Freccia trasparente */
+}
+
+/*-----------------------*/
+
+/* Cookies */
+
+.cookie-banner {
+    position: fixed;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    background-color: #222;
+    color: white;
+    padding: 15px;
     z-index: 1000;
-    opacity: 0; /* Inizialmente invisibile */
-    transition: opacity 0.5s ease; /* Transizione per apparizione e scomparsa */
-    pointer-events: none; /* Disabilita clic quando è invisibile */
 }
 
-/* Stile del pulsante quando è visibile */
-.scroll-to-top.visible {
-    opacity: 1; /* Completamente visibile */
-    pointer-events: auto; /* Abilita clic quando visibile */
+.cookie-banner a {
+    color: var(--colore-primario); /* Colore arancione del sito */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-family: 'Moderat Extended', sans-serif; /* Applica il font del sito */
+    font-weight: 300; /* Pesi o stile che preferisci */
+    transition: 0.5s ease-out;
 }
 
-/* Cambio di stile quando il pulsante è sopra sezioni arancioni */
-.scroll-to-top.white {
-    color: white; /* Freccia bianca */
-    border-color: white; /* Bordo bianco */
+.cookie-banner a:hover {
+    color: #f9f9f9; /* Colore del link quando si passa sopra con il mouse */
+    text-decoration: underline; /* Sottolineatura in hover, opzionale */
 }
 
-/* Cambio del colore al passaggio del mouse (hover) */
-.scroll-to-top:hover {
-    background-color: rgba(233, 83, 29, 0.1); /* Leggero sfondo trasparente con arancione */
+.cookie-buttons {
+    display: flex;
+    align-items: center; /* Assicura che i pulsanti siano allineati verticalmente */
+    justify-content: center; /* Spazia gli elementi tra loro */
+    gap: 10px; /* Spazio tra i bottoni */
+}
+
+.cookie-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--colore-primario);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    border-radius: 5px;
+    font-family: 'Moderat Extended', sans-serif; /* Aggiungi il font */
+}
+
+.cookie-btn:hover {
+    background-color: #f9f9f9;
+    color: var(--colore-primario);
+}
+
+.reject {
+    background-color: #f44336; /* Colore rosso per il bottone "Rifiuta" */
+}
+
+.reject:hover {
+    background-color: #d32f2f;
 }

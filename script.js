@@ -1,4 +1,50 @@
-// menu
+// Cookies
+document.getElementById('accept-cookies').addEventListener('click', function() {
+    setCookie('userConsent', 'accepted', 365);
+    document.getElementById('cookie-banner').style.display = 'none';
+});
+
+document.getElementById('reject-cookies').addEventListener('click', function() {
+    setCookie('userConsent', 'rejected', 365);
+    document.getElementById('cookie-banner').style.display = 'none';
+});
+
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+window.onload = function() {
+    var userConsent = getCookie('userConsent');
+    if (!userConsent) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+};
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+if (localStorage.getItem("cookieConsent") === "accepted") {
+    // Includi script di tracking
+    var script = document.createElement("script");
+    script.src = "https://www.googletagmanager.com/gtag/js?id=YOUR_ANALYTICS_ID";
+    document.head.appendChild(script);
+}
+
+// Menu
 document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -65,38 +111,40 @@ document.querySelectorAll('.servizio-item').forEach(item => {
 
 
 // Pulsante per tornare su
-window.onscroll = function() {
-    var scrollTopButton = document.getElementById("scrollTopButton");
-    var yOffset = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Mostra il pulsante quando si scrolla oltre i 300px
-    if (yOffset > 300) {
-        scrollTopButton.classList.add("visible"); // Aggiunge la classe "visible"
-    } else {
-        scrollTopButton.classList.remove("visible"); // Rimuove la classe "visible"
-    }
-
-    // Rileva quando il bottone è sopra una sezione arancione e cambia colore
-    var orangeSections = document.querySelectorAll('.hero, footer'); // Aggiorna con le sezioni arancioni del tuo sito
-    var isOverOrangeSection = Array.from(orangeSections).some(function(section) {
-        var rect = section.getBoundingClientRect();
-        return (
-            rect.top < window.innerHeight &&
-            rect.bottom > 0
-        );
-    });
-
-    if (isOverOrangeSection) {
-        scrollTopButton.classList.add("white");
-    } else {
-        scrollTopButton.classList.remove("white");
-    }
-};
-
-// Aggiungi l'evento click per scrollare in cima
-document.getElementById("scrollTopButton").addEventListener("click", function() {
+document.getElementById('scrollTopButton').addEventListener('click', function() {
     window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: 'smooth' // Scroll fluido
+    });
+});
+
+// Funzione per mostrare/nascondere il pulsante e gestire i colori
+window.addEventListener('scroll', function() {
+    const scrollTopButton = document.getElementById('scrollTopButton');
+    const scrollPosition = window.scrollY;
+    
+    // Rende il pulsante visibile dopo 200px di scroll
+    if (scrollPosition > 200) {
+        scrollTopButton.classList.add('visible');
+    } else {
+        scrollTopButton.classList.remove('visible');
+    }
+
+    // Cambia colore in base alla sezione attuale
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            if (section.classList.contains('orange-bg')) { // Sezione con sfondo arancione
+                scrollTopButton.classList.add('on-orange-bg');
+                scrollTopButton.classList.remove('on-light-bg', 'on-dark-bg');
+            } else if (getComputedStyle(section).backgroundColor === 'rgb(249, 249, 249)') { // Sfondo chiaro
+                scrollTopButton.classList.add('on-light-bg');
+                scrollTopButton.classList.remove('on-dark-bg', 'on-orange-bg');
+            } else if (getComputedStyle(section).backgroundColor === 'rgb(0, 0, 0)') { // Sfondo nero
+                scrollTopButton.classList.add('on-dark-bg');
+                scrollTopButton.classList.remove('on-light-bg', 'on-orange-bg');
+            }
+        }
     });
 });
