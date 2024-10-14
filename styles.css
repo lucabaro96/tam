@@ -69,11 +69,22 @@ nav {
     font-size: 15px;
     text-decoration: none;
     padding: 10px 15px;
-    transition: text-decoration 0.5s ease; /* Transizione di 0.5 secondi per la sottolineatura */
+    position: relative; /* Per posizionare l'underline personalizzato */
 }
 
-.nav-links li a:hover {
-    text-decoration: underline; 
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px; /* Altezza della linea */
+    background-color: var(--colore-primario); /* Colore della linea */
+    transition: width 0.5s ease; /* Transizione dell'underline */
+}
+
+.nav-links li a:hover::after {
+    width: 100%; /* Espande la linea */
 }
 
 /* Dropdown */
@@ -120,6 +131,8 @@ nav {
     color: var(--colore-primario);
     font-weight: normal;
     font-size: 14px;
+    
+    padding: 0
 }
 
 /* Nascondi il menu in modalità mobile */
@@ -242,6 +255,10 @@ nav {
     .dropdown-content li {
         padding: 2px 0px;
         margin-right: -1px;
+    }
+
+    .dropdown-content li a {
+        padding: 10px 15px;
     }
 
     .dropdown-active {
@@ -772,6 +789,42 @@ footer p {
     text-align: left; /* Allinea il testo a sinistra */
 }
 
+/* Stile per i link delle colonne del footer e i link a destra */
+.footer-column a, 
+.footer-right a {
+    text-decoration: none; /* Disabilita completamente il text-decoration */
+    color: inherit;
+    position: relative;
+    display: inline-block; /* Assicura che ::after segua correttamente il testo */
+}
+
+/* Creazione della linea solo con ::after */
+.footer-column a::after, 
+.footer-right a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Posiziona la linea esattamente sotto il testo */
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0); /* Nasconde inizialmente la linea */
+    transform-origin: left; /* Inizia l'animazione dalla sinistra */
+    transition: transform 0.3s ease; /* Transizione fluida */
+}
+
+/* Espande la linea con l'animazione */
+.footer-column a:hover::after, 
+.footer-right a:hover::after {
+    transform: scaleX(1); /* Estende la linea a tutta la larghezza */
+}
+
+/* Disabilita qualsiasi text-decoration durante il passaggio del mouse */
+.footer-column a:hover,
+.footer-right a:hover {
+    text-decoration: none;
+}
+
 .footer-column:nth-child(4) {
     display: flex; /* Rendi la quarta colonna un contenitore flessibile */
     flex-direction: column; /* Disposizione verticale */
@@ -839,7 +892,7 @@ footer p {
     border: 1px solid var(--colore-primario); /* Colore del bordo arancione */
     background: transparent; /* Nessuno sfondo */
     color: var(--colore-primario); /* Freccia dello stesso colore del bordo */
-    padding: 15px 23px;
+    padding: 11px 19px;
     font-size: 24px;
     border-radius: 5px;
     cursor: pointer;
@@ -896,8 +949,11 @@ footer p {
     width: 100%;
     background-color: #222;
     color: white;
-    padding: 15px;
+    padding: 18px;
     z-index: 1000;
+    display: flex;
+    align-items: center; /* Assicura che i pulsanti siano allineati verticalmente */
+    justify-content: center; /* Spazia gli elementi tra loro */
 }
 
 .cookie-banner a {
@@ -930,6 +986,10 @@ footer p {
     text-align: center;
     border-radius: 5px;
     font-family: 'Moderat Extended', sans-serif; /* Aggiungi il font */
+}
+
+.cookie-buttons p {
+    margin-right: 50px;
 }
 
 .cookie-btn:hover {
