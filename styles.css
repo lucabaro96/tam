@@ -1,5 +1,6 @@
 :root {
-    --colore-primario: #E9531D; /* Definisci il colore primario come variabile */
+    --colore-primario: #E9531D; /* Arancione */
+    --colore-chiaro: #EEEDED; /* Chiaro */
 }
 
 * {
@@ -39,7 +40,7 @@ header.hero, section {
 
 /* Stile della barra di navigazione */
 nav {
-    background-color: #EEEDED;
+    background-color: var(--colore-chiaro);
     height: 180px; /* Altezza fissa per la barra di navigazione */
     padding-top: 15px; /* Spazio di 50px dal bordo superiore */
 }
@@ -110,7 +111,7 @@ nav {
 .dropdown-content {
     display: block; /* Mantieni sempre visibile in modo che la transizione funzioni */
     position: absolute;
-    background-color: #EEEDED;
+    background-color: var(--colore-chiaro);
     padding: 10px 0; 
     z-index: 1;
     opacity: 0; /* Inizialmente invisibile */
@@ -217,7 +218,7 @@ nav {
         left: 0; /* Posizione a sinistra */
         width: 100%; /* Larghezza al 100% */
         height: 90vh; /* Altezza al 90% della viewport */
-        background-color: #EEEDED; /* Colore di sfondo */
+        background-color: var(--colore-chiaro); /* Colore di sfondo */
         z-index: 2; /* Assicurati che il menu si sovrapponga ad altri elementi */
         padding-top: 100px; /* Spazio per il logo */
     }
@@ -245,7 +246,7 @@ nav {
     .dropdown-content {
         max-height: 0;
         overflow: hidden;
-        background-color: #EEEDED;
+        background-color: var(--colore-chiaro);
         padding: 0;
         transition: max-height 0.5s ease, padding 0.5s ease;
         position: relative;
@@ -319,18 +320,22 @@ nav {
 }
 
 /* Testo grande a sinistra */
-.hero-text {
+.hero-text, .contatti-text {
     text-align: left; /* Testo allineato a sinistra */
     flex: 1;
     max-width: 67%; /* Limita la larghezza del blocco testo */
 }
 
-.hero-text h1 {
-    color: white; /* Testo principale in bianco */
+.hero-text h1, .contatti-text h1 {
+    color: var(--colore-chiaro); /* Testo principale in bianco */
     font-size: 5rem; /* Aumentato ulteriormente il testo */
     font-weight: 900;
     margin-bottom: 60px;
     line-height: 0.85; /* Ridotta l'interlinea */
+}
+
+.contatti-text h1 {
+    color: var(--colore-primario);
 }
 
 .hero-line {
@@ -439,7 +444,7 @@ nav {
     padding-top: 70px;
     padding-bottom: 70px;
     box-sizing: border-box;
-    background-color: #f9f9f9; /* Sfondo grigio chiaro */
+    background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
 
 #settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container {
@@ -674,7 +679,7 @@ nav {
 /* Stile per la sezione Contatti */
 #contatti {
     padding: 70px 0; /* Padding superiore e inferiore */
-    background-color: #f9f9f9; /* Sfondo grigio chiaro */
+    background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
 
 .contatti-grid {
@@ -721,7 +726,7 @@ nav {
 .contatto:hover .triangolo {
     border-left: 8px solid transparent; /* Triangolo verso destra */
     border-right: 8px solid transparent;
-    border-top: 8px solid#f9f9f9; /* Colore del triangolo */
+    border-top: 8px solidvar(--colore-chiaro); /* Colore del triangolo */
 }
 
 /* Responsività */
@@ -834,7 +839,11 @@ footer p {
 
 .footer-column:nth-child(4) p:last-child {
     margin-top: auto; /* Spinge l'ultimo paragrafo verso il fondo */
-    margin-bottom: 46px;
+    margin-bottom: 40px;
+}
+
+.footer-column:nth-child(4) p:last-child img {
+    width: 200px;
 }
 
 .footer-bottom {
@@ -913,28 +922,28 @@ footer p {
 }
 
 #scrollTopButton.on-dark-bg {
-    border-color: #f9f9f9; /* Bordo bianco */
-    color: #f9f9f9; /* Freccia bianca */
+    border-color: var(--colore-chiaro); /* Bordo bianco */
+    color: var(--colore-chiaro); /* Freccia bianca */
 }
 
 #scrollTopButton.on-orange-bg {
-    border-color: #f9f9f9; /* Bordo bianco */
-    color: #f9f9f9; /* Freccia bianca */
+    border-color: var(--colore-chiaro); /* Bordo bianco */
+    color: var(--colore-chiaro); /* Freccia bianca */
 }
 
 /* Effetto hover: Riempie il pulsante con il colore del bordo e rende la freccia trasparente */
 #scrollTopButton.on-light-bg:hover {
     background-color: var(--colore-primario); /* Sfondo arancione */
-    color: #f9f9f9; /* Freccia trasparente */
+    color: var(--colore-chiaro); /* Freccia trasparente */
 }
 
 #scrollTopButton.on-dark-bg:hover {
-    background-color: #f9f9f9; /* Sfondo bianco */
+    background-color: var(--colore-chiaro); /* Sfondo bianco */
     color: black; /* Freccia trasparente */
 }
 
 #scrollTopButton.on-orange-bg:hover {
-    background-color: #f9f9f9; /* Sfondo bianco */
+    background-color: var(--colore-chiaro); /* Sfondo bianco */
     color: var(--colore-primario); /* Freccia trasparente */
 }
 
@@ -965,7 +974,7 @@ footer p {
 }
 
 .cookie-banner a:hover {
-    color: #f9f9f9; /* Colore del link quando si passa sopra con il mouse */
+    color: var(--colore-chiaro); /* Colore del link quando si passa sopra con il mouse */
     text-decoration: underline; /* Sottolineatura in hover, opzionale */
 }
 
@@ -993,7 +1002,7 @@ footer p {
 }
 
 .cookie-btn:hover {
-    background-color: #f9f9f9;
+    background-color: var(--colore-chiaro);
     color: var(--colore-primario);
 }
 
@@ -1003,4 +1012,32 @@ footer p {
 
 .reject:hover {
     background-color: #d32f2f;
+}
+
+
+.container-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Griglia a 2 colonne */
+    gap: 30px; /* Spazio tra gli elementi */
+    width: 100%; /* Usa tutta la larghezza del contenitore */
+    margin: 0 auto; /* Centra la griglia */
+    margin-bottom: 50px;
+}
+
+/* Stile per ogni blocco di informazione */
+.info {
+    position: relative; /* Necessario per il triangolo */
+    padding: 10px 0; /* Spazio sopra e sotto */
+    text-align: left; /* Allineamento a sinistra */
+    font-size: 1.2rem; /* Dimensione del testo */
+    border-bottom: 1px solid var(--colore-primario); /* Sottolineatura del colore primario */
+    width: 100%; /* Estende l'elemento alla larghezza completa */
+    box-sizing: border-box; /* Include padding e bordo nel calcolo della larghezza */
+}
+
+/* Testo all'interno del blocco */
+.info-testo {
+    margin: 0;
+    display: inline-block;
+    width: 100%; /* Il testo occupa l'intera larghezza disponibile */
 }

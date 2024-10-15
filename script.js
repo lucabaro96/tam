@@ -90,13 +90,14 @@ window.addEventListener('scroll', function() {
     sections.forEach(section => {
         const rect = section.getBoundingClientRect();
         if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            const bgColor = getComputedStyle(section).backgroundColor;
             if (section.classList.contains('orange-bg')) { // Sezione con sfondo arancione
                 scrollTopButton.classList.add('on-orange-bg');
                 scrollTopButton.classList.remove('on-light-bg', 'on-dark-bg');
-            } else if (getComputedStyle(section).backgroundColor === 'rgb(249, 249, 249)') { // Sfondo chiaro
+            } else if (bgColor === 'rgb(238, 237, 237)') { // Sfondo chiaro (equivalente a var(--colore-chiaro))
                 scrollTopButton.classList.add('on-light-bg');
                 scrollTopButton.classList.remove('on-dark-bg', 'on-orange-bg');
-            } else if (getComputedStyle(section).backgroundColor === 'rgb(0, 0, 0)') { // Sfondo nero
+            } else if (bgColor === 'rgb(0, 0, 0)') { // Sfondo nero
                 scrollTopButton.classList.add('on-dark-bg');
                 scrollTopButton.classList.remove('on-light-bg', 'on-orange-bg');
             }
