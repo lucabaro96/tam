@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti</title>
+    <title>L'Azienda</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="font.css"> 
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
@@ -41,62 +41,85 @@
         </div>
     </nav>
 
+    <!-- Copertina di pagina -->
+    <header class="azienda-hero">
+        <div class="container">
+            <div class="video-container">
+                <video autoplay loop muted playsinline>
+                    <source src="images/logo_animato_azienda.mp4" type="video/mp4">
+                    Il tuo browser non supporta il video HTML5.
+                </video>
+            </div>
+            <div class="text-container">
+                <h1>Il gruppo nasce nel 2006 con l’obbiettivo di offrire la gamma completa di produzione e servizi nel settore dei tessuti spalmati in PVC.</h1>
+            </div>
+            <div class="scroll-indicator">
+                <span class="arrow">↓</span> SCORRI 
+            </div>
+        </div>
+    </header>
+
+    <section id="azienda-settori">
+        <div class="container">
+            <div class="header-row">
+                <div class="header-text">
+                    <h2>I nostri settori:</h2>
+                    <p>Con due sedi operative, siamo presenti in tutta Italia nei settori di Industria, Sport, Trasporti, Outdoor e Advertising, garantendo una copertura capillare su tutto il territorio.</p>
+                </div>
+                <div class="arrow-controls">
+                    <span class="arrow-slideshow left-arrow">&#8592;</span> <!-- Freccia a sinistra -->
+                    <span class="arrow-slideshow right-arrow">&#8594;</span> <!-- Freccia a destra -->
+                </div>
+            </div>
+            <div class="slideshow">
+                <div class="scroll-container">
+                    <a href="industria.html"><div class="settore-card">Industria<div class="triangolo"></div></div></a>
+                    <a href="sport.html"><div class="settore-card">Sport<div class="triangolo"></div></div></a>
+                    <a href="trasporti.html"><div class="settore-card">Trasporti<div class="triangolo"></div></div></a>
+                    <a href="outdoor.html"><div class="settore-card">Outdoor<div class="triangolo"></div></div></a>
+                    <a href="advertising.html"><div class="settore-card">Advertising<div class="triangolo"></div></div></a>
+                </div>
+                         <!-- Linee verticali -->
+                <div class="line-vertical left-line"></div>
+                <div class="line-vertical right-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Esperienza-->
+    <section id="esperienza">
+        <div class="container">
+            <div class="left">
+                <h2>Esperienza, Qualità, Sostenibilità</h2>
+            </div>
+            <div class="right">
+                <p>Grazie alla nostra pluriennale esperienza nel mercato, offriamo servizi di vendita e assistenza che garantiscono la massima soddisfazione dei clienti, con un costante impegno per la tutela dell'ambiente.</p>
+                <p class="underline">Usiamo solo energie rinnovabili.</p>
+            </div>
+            <div class="image-full">
+                <img src="images/eco.jpg" alt="Descrizione dell'immagine" />
+            </div>
+        </div>
+    </section>
+    
+    <section id="mission">
+        <div class="container">
+            <div class="left">
+                <h2>La mission</h2>
+            </div>
+            <div class="right">
+                <p>TAM Group punta all'innovazione del concetto di protezione, utilizzando tecnologie e materiali sempre all’avanguardia e impiegando prodotti certificati dall’Unione Europea, con il minor impatto ambientale possibile per uno sviluppo sempre più ecosostenibile.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contatti -->
     <section id="contatti">
         <div class="container">
-            <div class="contatti-text">
-                <h1>Contattaci!</h1>
-            </div>
-            <div class="container-info">
-                <div class="info">
-                    <p class="info-testo">Tel: +39 02 5061007</p>
-                    <div class="triangolo"></div>
-                </div>
-                <div class="info">
-                    <p class="info-testo">WhatsApp: +39 333 11 39 364</p>
-                    <div class="triangolo"></div>
-                </div>
-                <div class="info">
-                    <p class="info-testo"><a href="mailto:info@tamgroup.it">info@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
-                </div>
-                <div class="info">
-                    <p class="info-testo"><a href="mailto:segreteria@tamgroup.it">segreteria@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
-                </div>
-            </div>
-            <!-- New Section for Mail Amministrazione and Commerciale -->
-            <div class="mail-info">
-                <div class="info">
-                    <p class="bold-text">Mail Amministrazione:</p>
-                    <p class="info-testo"><a href="mailto:amministrazione@tamgroup.it">amministrazione@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
-                </div>
-                <div class="info">
-                    <p class="bold-text">Mail Commerciale:</p>
-                    <p class="info-testo"><a href="mailto:commerciale@tamgroup.it">commerciale@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
-                </div>
-            </div>
             <div class="contatti-grid">
                 <a href="preventivi.html" class="contatto">Richiedi un preventivo<div class="triangolo"></div></a>
                 <a href="lavora_con_noi.html" class="contatto">Lavora con noi<div class="triangolo"></div></a>
-                <div class="posizione">
-                    <p>Vieni a trovarci!</p>
-                    <p>Via G. Fantoli 32/C, 20138 - Milano, IT<br>
-                        Uscita tangenziale Est CAMM</p>
-                    <div class="mappa">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5597.578834864209!2d9.255736775977272!3d45.45389947107371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c5e10bb385b5%3A0x95823b4e39b46620!2sTAM%20Group%20srl!5e0!3m2!1sen!2sit!4v1729078802658!5m2!1sen!2sit"
-                            width="100%" 
-                            height="500" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
+                <a href="contatti.html" class="contatto">Contattaci<div class="triangolo"></div></a>
             </div>
         </div>
     </section>

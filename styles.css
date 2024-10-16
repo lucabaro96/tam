@@ -10,6 +10,11 @@
     scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Contenitore centrale con larghezza massima */
 .container {
     max-width: 1600px;
@@ -68,7 +73,6 @@ nav {
     color: var(--colore-primario);
     font-weight: normal;
     font-size: 15px;
-    text-decoration: none;
     padding: 10px 15px;
     position: relative; /* Per posizionare l'underline personalizzato */
 }
@@ -207,6 +211,10 @@ nav {
     
     .dropdown {
         margin-top: 50px;
+    }
+
+    nav {
+        margin-bottom: -1px;
     }
 
     .nav-links {
@@ -379,7 +387,6 @@ nav {
 }
 
 .arrow {
-    margin-left: 5px; /* Spazio tra il testo e la freccia */
     font-size: 1.5rem; /* Dimensione della freccia */
 }
 
@@ -405,7 +412,7 @@ nav {
         max-width: 100%; /* Permetti al testo di occupare l'intera larghezza */
     }
 
-    .hero-text h1 {
+    .hero-text h1, .contatti-text h1 {
         font-size: 3rem; /* Ridimensiona il testo per schermi piccoli */
         margin-bottom: 30px; /* Riduci il margine inferiore */
     }
@@ -447,7 +454,7 @@ nav {
     background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
 
-#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container {
+#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container, #esperienza .container {
     display: flex; /* Assicurati che il contenitore sia un flexbox */
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
@@ -455,7 +462,7 @@ nav {
 }
 
 /* Stile per il titolo */
-#settori h2, #servizi h2, #materiali h2 {
+#settori h2, #servizi h2, #materiali h2, #azienda-settori h2, #esperienza h2, #mission h2 {
     color: var(--colore-primario); /* Arancione */
     font-size: 2rem; /* Grandezza del testo */
     font-weight: 800;
@@ -691,7 +698,7 @@ nav {
     margin-bottom: 40px; /* Spazio inferiore per distanziare la riga successiva */
 }
 
-.contatto {
+.contatto, .posizione {
     position: relative; /* Necessario per posizionare il triangolo */
     box-sizing: border-box;
     border: 1px solid var(--colore-primario); /* Bordo arancione */
@@ -703,10 +710,9 @@ nav {
     font-weight: bold; /* Testo in grassetto */
     border-radius: 8px; /* Angoli arrotondati */
     transition: 0.5s ease-out;
-    text-decoration: none; /* Rimuovi il sottolineato */
 }
 
-.contatto .triangolo {
+.contatto .triangolo, .slideshow .triangolo {
     bottom: 19px;
     right: 15px;
 }
@@ -723,10 +729,10 @@ nav {
     color: #fff; /* Testo bianco */
 }
 
-.contatto:hover .triangolo {
+.contatto:hover .triangolo, .settore-card:hover .triangolo {
     border-left: 8px solid transparent; /* Triangolo verso destra */
     border-right: 8px solid transparent;
-    border-top: 8px solidvar(--colore-chiaro); /* Colore del triangolo */
+    border-top: 8px solid var(--colore-chiaro); /* Colore del triangolo */
 }
 
 /* Responsività */
@@ -797,7 +803,6 @@ footer p {
 /* Stile per i link delle colonne del footer e i link a destra */
 .footer-column a, 
 .footer-right a {
-    text-decoration: none; /* Disabilita completamente il text-decoration */
     color: inherit;
     position: relative;
     display: inline-block; /* Assicura che ::after segua correttamente il testo */
@@ -822,12 +827,6 @@ footer p {
 .footer-column a:hover::after, 
 .footer-right a:hover::after {
     transform: scaleX(1); /* Estende la linea a tutta la larghezza */
-}
-
-/* Disabilita qualsiasi text-decoration durante il passaggio del mouse */
-.footer-column a:hover,
-.footer-right a:hover {
-    text-decoration: none;
 }
 
 .footer-column:nth-child(4) {
@@ -967,7 +966,6 @@ footer p {
 
 .cookie-banner a {
     color: var(--colore-primario); /* Colore arancione del sito */
-    text-decoration: none; /* Rimuove la sottolineatura */
     font-family: 'Moderat Extended', sans-serif; /* Applica il font del sito */
     font-weight: 300; /* Pesi o stile che preferisci */
     transition: 0.5s ease-out;
@@ -1014,8 +1012,11 @@ footer p {
     background-color: #d32f2f;
 }
 
+/*--------------------*/
 
-.container-info {
+/*PAGINA CONTATTI*/
+
+.container-info, .mail-info {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Griglia a 2 colonne */
     gap: 30px; /* Spazio tra gli elementi */
@@ -1040,4 +1041,353 @@ footer p {
     margin: 0;
     display: inline-block;
     width: 100%; /* Il testo occupa l'intera larghezza disponibile */
+}
+
+/* Bold text for the headings */
+.bold-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--colore-primario); /* Uses the primary color */
+    margin-bottom: 30px; /* Small space between the heading and email */
+}
+
+.posizione {
+    grid-column: span 2; /* Fa sì che "Contattaci" occupi entrambe le colonne */
+    max-width: 100%; /* Estendi la larghezza massima */
+    height: auto;
+}
+
+.posizione p:first-child {
+    font-weight: bold; /* Testo in grassetto */
+    margin-bottom: 20px;
+}
+
+.posizione p:nth-child(2) {
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.mappa iframe {
+    border-radius: 15px; /* Arrotonda i bordi */
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .container-info, .mail-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/*-----------*/
+
+/*PAGINA AZIENDA*/
+
+/* Copertina */
+
+.azienda-hero {
+    background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
+    height: calc(100vh - 195px);
+}
+
+.azienda-hero .container {
+    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 70px;
+}
+
+.video-container {
+    width:50%;
+    flex-shrink: 0;
+}
+
+.video-container video {
+    height: auto;
+    width: 100%;
+}
+
+.text-container h1 {
+    font-size: 2.5em;
+    line-height: 1.2;
+}
+
+.azienda-hero .scroll-indicator {
+    color: var(--colore-primario);
+}
+
+.text-container h1 {
+    color: var(--colore-primario);
+}
+
+@media (max-width: 768px) {
+    .azienda-hero  {
+        height: auto;
+    }
+
+    .azienda-hero .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .video-container {
+        width: 100%;
+    }
+
+    .azienda-hero .scroll-indicator {
+        display: none;
+    }
+
+    .text-container h1 {
+        font-size: 2.2em;
+    }
+}
+
+/*--------*/
+
+/* Sezione Settori Azienda */
+
+#azienda-settori {
+    padding: 70px 0; /* Padding superiore e inferiore */
+}
+
+#azienda-settori .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Allinea a sinistra */
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between; /* Spazio tra il testo e le frecce */
+    width: 100%;
+    margin-bottom: 20px; /* Spazio sotto la riga */
+}
+
+.header-text {
+    flex: 1; /* Occupa tutto lo spazio disponibile */
+}
+
+.header-text p {
+    width: 50%;
+    margin: 30px 0 0; /* Spazio sopra il paragrafo */
+}
+
+/* Frecce */
+.arrow-controls {
+    display: flex;
+    align-items: end; /* Centra verticalmente le frecce */
+}
+
+.arrow-slideshow {
+    font-size: 1rem; /* Dimensione delle frecce */
+    cursor: pointer; /* Cursore a mano */
+    margin-left: 10px; /* Margine tra le frecce */
+    padding: 15px 19px; /* Spazio interno per cliccabilità */
+    color: var(--colore-primario); /* Colore delle frecce */
+    border: 1px solid var(--colore-primario); /* Bordo arancione */
+    border-radius: 5px; /* Angoli smussati */
+    transition: background-color 0.3s, color 0.3s; /* Transizione per il cambio di stato */
+}
+
+.arrow-slideshow:hover {
+    background-color: var(--colore-primario); /* Sfondo arancione al passaggio del mouse */
+    color: white; /* Cambia il colore del testo a bianco */
+}
+
+/* Stile per lo slideshow */
+.slideshow {
+    display: flex;
+    overflow: hidden; /* Nasconde le carte che escono dal contenitore */
+    position: relative; /* Necessario per il posizionamento delle frecce */
+    margin-top: 30px;
+    width: 100%; /* Imposta la larghezza al 100% del contenitore */
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: scroll; /* Abilita lo scroll orizzontale */
+    -webkit-overflow-scrolling: touch; /* Scorrimento fluido su dispositivi touch */
+    scroll-behavior: smooth; /* Scorrimento fluido */
+    margin: 30px 0;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Nasconde la scrollbar per i browser WebKit (Chrome, Safari) */
+}
+
+.scroll-container {
+    scrollbar-width: none; /* Nasconde la scrollbar per Firefox */
+}
+
+.line-vertical {
+    position: absolute;
+    width: 3px; /* Larghezza della linea */
+    background-color: var(--colore-primario); /* Colore della linea */
+    height: 100%; /* Altezza della linea */
+    top: 0; /* Posiziona in alto */
+    opacity: 0; /* Nascondi le linee per impostazione predefinita */
+    transition: opacity 0.5s ease; /* Aggiungi transizione per la visibilità */
+}
+
+.left-line {
+    left: 0; /* Posiziona la linea a sinistra */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Ombra a destra della linea */
+}
+
+.right-line {
+    right: 0; /* Posiziona la linea a destra */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Ombra a sinistra della linea */
+}
+
+.settore-card {
+    position: relative;
+    box-sizing: border-box;
+    flex: 0 0 auto; /* Mantieni la dimensione fissa */
+    border: 1px solid var(--colore-primario); /* Bordo arancione */
+    border-radius: 8px; /* Angoli arrotondati */
+    padding: 10px 20px; /* Spazio interno */
+    margin-right: 40px; /* Spazio tra le carte */
+    height: 200px;
+    width: 400px; /* Larghezza fissa */
+    font-size: 1.8em; /* Aumenta la dimensione del testo */
+    color: var(--colore-primario); /* Colore arancione */
+    font-weight: bold; /* Testo in grassetto */
+    transition: background-color 0.3s, color 0.3s; /* Transizione per il cambio di stato */
+}
+
+.settore-card:hover {
+    background-color: var(--colore-primario);
+    color: var(--colore-chiaro);
+}
+
+/* Nascondi le frecce in modalità responsive */
+@media (max-width: 768px) {
+    .arrow-controls {
+        display: none; /* Nascondi le frecce */
+    }
+
+    .header-text p {
+        width: 100%;
+    }
+
+    .settore-card {
+        height: 200px;
+        width: 220px; /* Larghezza fissa */
+    }
+}
+
+/*--------------*/
+
+/* Sezione Esperienza */
+#esperienza {
+    padding: 70px 0; /* Padding superiore e inferiore */
+    background-color: var(--colore-chiaro); /* Sfondo bianco */
+}
+
+#esperienza .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Stile per la parte sinistra */
+#esperienza .left {
+    flex: 1;
+}
+
+/* Parte destra con i paragrafi */
+#esperienza .right {
+    flex: 1;
+    text-align: left;
+}
+
+#esperienza .right p {
+    margin-bottom: 30px;
+}
+
+.underline {
+    text-decoration: underline; /* Sottolinea il testo */
+}
+
+/* Immagine a tutto schermo all'interno del container */
+.image-full {
+    margin-top: 20px; /* Spazio sopra l'immagine */
+    width: 100%; /* Larghezza dell'immagine */
+    height: 768px; /* Altezza fissa dell'immagine, modificabile a piacere */
+    overflow: hidden; /* Nasconde l'eventuale overflow dell'immagine */
+}
+
+.image-full img {
+    width: 100%; /* L'immagine occupa il 100% della larghezza del container */
+    height: 100%; /* Si espande in altezza */
+    object-fit: cover; /* L'immagine si adatta al contenitore, tagliando se necessario */
+    border-radius: 16px; /* Aggiungi bordi arrotondati se lo desideri */
+}
+
+@media (max-width: 768px) {
+    #esperienza .container {
+        flex-direction: column; /* Disposizione a colonna per schermi piccoli */
+    }
+
+    .image-full {
+        height: 500px; /* Ridimensiona l'altezza dell'immagine per schermi piccoli */
+    }
+
+    .right p {
+        font-size: 1rem; /* Ridimensiona il testo */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-full {
+        height: 300px; /* Ulteriore riduzione per schermi molto piccoli */
+    }
+
+    .right p {
+        font-size: 0.9rem; /* Ridimensiona ancora di più il testo */
+    }
+}
+
+/*-------*/
+
+/* Sezione Mission */
+#mission {
+    padding: 70px 0; /* Padding superiore e inferiore */
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mission .container {
+    max-width: 900px;
+}
+
+/* Parte sinistra con il titolo */
+#mission .left {
+    flex: 1;
+}
+
+/* Parte destra con il paragrafo */
+#mission .right {
+    flex: 1;
+    text-align: left;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    #mission .container {
+        flex-direction: column; /* Disposizione a colonna per schermi piccoli */
+    }
+
+    #mission .right p {
+        font-size: 1rem; /* Ridimensiona il testo per schermi piccoli */
+        text-align: justify;
+        margin-top: 30px;
+    }
 }
