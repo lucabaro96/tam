@@ -165,3 +165,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 // ----------
+
+
+// Aggiornare nome file
+
+function updateFileName(input) {
+    var fileName = input.files[0] ? input.files[0].name : "Nessun file scelto (PDF / JPG / PNG)";
+    document.getElementById("file-name").innerText = fileName;
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti</title>
+    <title>Fatto su misura!</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="font.css"> 
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
@@ -41,63 +41,48 @@
         </div>
     </nav>
 
-    <!-- Contatti -->
-    <section id="contatti">
+    <!-- Preventivo -->
+    <section id="preventivo">
         <div class="container">
             <div class="header-pages-text">
-                <h1>Contattaci!</h1>
+                <h1>Fatto su misura!</h1>
             </div>
-            <div class="container-info">
-                <div class="info">
-                    <p class="info-testo">Tel: +39 02 5061007</p>
-                    <div class="triangolo"></div>
+            <p>Richiedi il tuo preventivo in pochi semplici passi! Compila il form ora e scopri come possiamo offrirti soluzioni su misura.</p>
+            
+            <form id="form-preventivo" enctype="multipart/form-data">
+                <div class="container-preventivi-info">
+                    <input type="text" class="form-info" placeholder="Nome e cognome*" required>
+                    <input type="email" class="form-info" placeholder="E-mail*" required>
                 </div>
-                <div class="info">
-                    <p class="info-testo">WhatsApp: +39 333 11 39 364</p>
-                    <div class="triangolo"></div>
+                <div class="container-preventivi-info">
+                    <input type="tel" class="form-info" placeholder="Telefono*" required>
+                    <input type="text" class="form-info" placeholder="Nome Azienda">
                 </div>
-                <div class="info">
-                    <p class="info-testo"><a href="mailto:info@tamgroup.it">info@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
+                <div class="container-preventivi-info">
+                    <input type="text" class="form-info" placeholder="Città*" required>
+                    <input type="text" class="form-info" placeholder="Provincia*" required>
                 </div>
-                <div class="info">
-                    <p class="info-testo"><a href="mailto:segreteria@tamgroup.it">segreteria@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
+                <div class="container-preventivi-info">
+                    <input type="text" class="form-info" placeholder="Indirizzo">
+                    <input type="text" class="form-info" placeholder="CAP">
                 </div>
-            </div>
-            <!-- New Section for Mail Amministrazione and Commerciale -->
-            <div class="mail-info">
-                <div class="info">
-                    <p class="bold-text">Mail Amministrazione:</p>
-                    <p class="info-testo"><a href="mailto:amministrazione@tamgroup.it">amministrazione@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
+                <div class="container-preventivi-info full-width">
+                    <textarea class="form-info" placeholder="Messaggio" rows="5"></textarea>
                 </div>
-                <div class="info">
-                    <p class="bold-text">Mail Commerciale:</p>
-                    <p class="info-testo"><a href="mailto:commerciale@tamgroup.it">commerciale@tamgroup.it</a></p>
-                    <div class="triangolo"></div>
+                <div class="container-preventivi-info">
+                    <label class="file-upload">
+                        <input type="file" accept=".pdf,.jpg,.png" onchange="updateFileName(this)" max-size="2048">
+                        <span>Allega Foto</span>
+                    </label>
+                    <p id="file-name" class="info-testo">Nessun file scelto (PDF / JPG / PNG)</p>
                 </div>
-            </div>
-            <div class="contatti-grid">
-                <a href="preventivi.html" class="contatto">Richiedi un preventivo<div class="triangolo"></div></a>
-                <a href="lavora_con_noi.html" class="contatto">Lavora con noi<div class="triangolo"></div></a>
-                <div class="posizione">
-                    <p>Vieni a trovarci!</p>
-                    <p>Via G. Fantoli 32/C, 20138 - Milano, IT<br>
-                        Uscita tangenziale Est CAMM</p>
-                    <div class="mappa">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5597.578834864209!2d9.255736775977272!3d45.45389947107371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c5e10bb385b5%3A0x95823b4e39b46620!2sTAM%20Group%20srl!5e0!3m2!1sen!2sit!4v1729078802658!5m2!1sen!2sit"
-                            width="100%" 
-                            height="500" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
+                <div class="checkboxes">
+                    <label><input type="checkbox" name="newsletter"> Iscriviti alla nostra newsletter per offerte esclusive e novità!</label>
+                    <label><input type="checkbox" name="privacy" required> Ho letto e accetto la <a href="privacy_policy.html">privacy policy</a> di TAM Group.*</label>
                 </div>
-            </div>
+                <button type="submit" class="submit-btn">INVIA</button>
+                <p>* Voci obbligatorie</p>
+            </form>
         </div>
     </section>
 

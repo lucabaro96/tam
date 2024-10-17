@@ -15,6 +15,39 @@ a {
     color: inherit;
 }
 
+/* Aggiungi una classe per l'effetto slide out */
+.page-slide-out {
+    animation: slide-out 0.5s forwards ease-in-out;
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+/* Aggiungi una classe per l'effetto slide in */
+.page-slide-in {
+    animation: slide-in 0.5s forwards ease-in-out;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
 /* Contenitore centrale con larghezza massima */
 .container {
     max-width: 1600px;
@@ -328,13 +361,13 @@ nav {
 }
 
 /* Testo grande a sinistra */
-.hero-text, .contatti-text {
+.hero-text, .header-pages-text {
     text-align: left; /* Testo allineato a sinistra */
     flex: 1;
     max-width: 67%; /* Limita la larghezza del blocco testo */
 }
 
-.hero-text h1, .contatti-text h1 {
+.hero-text h1, .header-pages-text h1 {
     color: var(--colore-chiaro); /* Testo principale in bianco */
     font-size: 5rem; /* Aumentato ulteriormente il testo */
     font-weight: 900;
@@ -342,7 +375,7 @@ nav {
     line-height: 0.85; /* Ridotta l'interlinea */
 }
 
-.contatti-text h1 {
+.header-pages-text h1 {
     color: var(--colore-primario);
 }
 
@@ -412,7 +445,7 @@ nav {
         max-width: 100%; /* Permetti al testo di occupare l'intera larghezza */
     }
 
-    .hero-text h1, .contatti-text h1 {
+    .hero-text h1, .header-pages-text h1 {
         font-size: 3rem; /* Ridimensiona il testo per schermi piccoli */
         margin-bottom: 30px; /* Riduci il margine inferiore */
     }
@@ -454,7 +487,7 @@ nav {
     background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
 
-#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container, #esperienza .container {
+#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container, #esperienza .container, #preventivo .container {
     display: flex; /* Assicurati che il contenitore sia un flexbox */
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
@@ -874,8 +907,9 @@ footer p {
     text-decoration: underline; /* Sottolinea al passaggio del mouse */
 }
 
-.social-logos img {
-    margin-right: 10px;
+.social-logos {
+    display: flex;
+    gap: 10px;
 }
 
 /* Responsività */
@@ -1375,4 +1409,101 @@ footer p {
     #mission p {
         font-size: 1rem; /* Ridimensiona il testo per schermi piccoli */
     }
+}
+
+
+/*------------*/
+
+/* PAGINA PREVENTIVI */
+
+#preventivo {
+    padding: 70px 0;
+    background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
+}
+
+#preventivo p {
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+}
+
+#form-preventivo {
+    width: 100%;
+}
+
+.container-preventivi-info {
+    display: flex; /* Cambia da grid a flexbox */
+    align-items: center; /* Allinea verticalmente al centro */
+    justify-content: center;
+    width: 100%;
+    gap: 30px; /* Spazio tra gli elementi */
+    margin-bottom: 40px; /* Spazio inferiore per distanziare la riga successiva */
+}
+
+.container-preventivi-info.full-width {
+    display: block;
+}
+
+.form-info {
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid var(--colore-primario);
+    font-size: 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent; /* Sfondo trasparente */
+    font-family: inherit; /* Usa il font base del documento */
+    font-weight: 300; /* Font più leggero */
+}
+
+textarea.info {
+    height: 100px;
+    display: inline;
+    background-color: transparent; /* Sfondo trasparente */
+    resize: none; /* Impedisce il ridimensionamento */
+}
+
+
+.file-upload {
+    width: 20%;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+
+.file-upload span {
+    width: 1000px;
+    background-color: var(--colore-primario);
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#file-name {
+    padding: 10px;
+    border-bottom: 2px solid var(--colore-primario);
+    margin-left: 10px; /* Aggiungi margine a sinistra per distanziare */
+}
+
+.checkboxes {
+    margin: 20px 0;
+}
+
+.checkboxes label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: var(--colore-primario);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: inherit; /* Usa il font base del documento */
+}
+
+.submit-btn:hover {
+    background-color: darken(var(--colore-primario), 10%);
 }
