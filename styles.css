@@ -1227,7 +1227,7 @@ footer p {
 .line-vertical {
     position: absolute;
     width: 3px; /* Larghezza della linea */
-    background-color: var(--colore-primario); /* Colore della linea */
+    background-color: none; /* Colore della linea */
     height: 100%; /* Altezza della linea */
     top: 0; /* Posiziona in alto */
     opacity: 0; /* Nascondi le linee per impostazione predefinita */
@@ -1235,13 +1235,13 @@ footer p {
 }
 
 .left-line {
-    left: 0; /* Posiziona la linea a sinistra */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Ombra a destra della linea */
+    left: -3px; /* Posiziona la linea a sinistra */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Ombra a destra della linea */
 }
 
 .right-line {
-    right: 0; /* Posiziona la linea a destra */
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3); /* Ombra a sinistra della linea */
+    right: -3px; /* Posiziona la linea a destra */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3); /* Ombra a sinistra della linea */
 }
 
 .settore-card {
@@ -1358,36 +1358,21 @@ footer p {
 /* Sezione Mission */
 #mission {
     padding: 70px 0; /* Padding superiore e inferiore */
-    height: 300px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#mission .container {
-    max-width: 900px;
 }
 
 /* Parte sinistra con il titolo */
-#mission .left {
-    flex: 1;
-}
-
-/* Parte destra con il paragrafo */
-#mission .right {
-    flex: 1;
-    text-align: left;
+#mission .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
+    text-align: justify;
 }
 
 /* Responsività */
 @media (max-width: 768px) {
-    #mission .container {
-        flex-direction: column; /* Disposizione a colonna per schermi piccoli */
-    }
-
-    #mission .right p {
+    #mission p {
         font-size: 1rem; /* Ridimensiona il testo per schermi piccoli */
-        text-align: justify;
-        margin-top: 30px;
     }
 }
