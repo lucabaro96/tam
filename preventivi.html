@@ -47,7 +47,7 @@
             <div class="header-pages-text">
                 <h1>Fatto su misura!</h1>
             </div>
-            <p>Richiedi il tuo preventivo in pochi semplici passi! Compila il form ora e scopri come possiamo offrirti soluzioni su misura.</p>
+            <p class="subtext">Richiedi il tuo preventivo in pochi semplici passi! Compila il form ora e scopri come possiamo offrirti soluzioni su misura.</p>
             
             <form id="form-preventivo" enctype="multipart/form-data">
                 <div class="container-preventivi-info">
@@ -77,8 +77,16 @@
                     <p id="file-name" class="info-testo">Nessun file scelto (PDF / JPG / PNG)</p>
                 </div>
                 <div class="checkboxes">
-                    <label><input type="checkbox" name="newsletter"> Iscriviti alla nostra newsletter per offerte esclusive e novità!</label>
-                    <label><input type="checkbox" name="privacy" required> Ho letto e accetto la <a href="privacy_policy.html">privacy policy</a> di TAM Group.*</label>
+                    <label>
+                        <input type="checkbox" name="newsletter">
+                        <div class="checkbox-custom"></div>
+                        Iscriviti alla nostra newsletter per offerte esclusive e novità!
+                    </label>
+                    <label>
+                        <input type="checkbox" name="privacy" required>
+                        <div class="checkbox-custom"></div>
+                        Ho letto e accetto la <a href="privacy_policy.html" class="privacy-link">privacy policy</a> di TAM Group.*
+                    </label>
                 </div>
                 <button type="submit" class="submit-btn">INVIA</button>
                 <p>* Voci obbligatorie</p>

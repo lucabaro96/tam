@@ -1421,7 +1421,7 @@ footer p {
     background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
 
-#preventivo p {
+.subtext {
     font-size: 1.2rem;
     margin-bottom: 60px;
 }
@@ -1455,55 +1455,126 @@ footer p {
     font-weight: 300; /* Font più leggero */
 }
 
-textarea.info {
+textarea.form-info {
     height: 100px;
     display: inline;
     background-color: transparent; /* Sfondo trasparente */
     resize: none; /* Impedisce il ridimensionamento */
 }
 
-
-.file-upload {
-    width: 20%;
-}
-
 .file-upload input[type="file"] {
     display: none;
 }
 
+.file-upload {
+    display: inline-block; /* Mantiene il pulsante in linea */
+    width: auto; /* Adattamento del pulsante alla lunghezza del testo */
+}
 
 .file-upload span {
-    width: 1000px;
-    background-color: var(--colore-primario);
-    padding: 10px;
-    color: white;
+    display: inline-block;
+    padding: 20px 50px; /* Aumenta il padding per un bottone più largo */
+    background-color: transparent; /* Sfondo trasparente */
+    color: var(--colore-primario); /* Colore del testo in base alla variabile primaria */
+    border: 1px solid var(--colore-primario); /* Bordo del colore primario */
+    border-radius: 8px; /* Bordi arrotondati */
+    text-align: center;
     cursor: pointer;
+    white-space: nowrap; /* Evita che il testo vada a capo */
+    transition: all 0.3s ease; /* Transizione fluida per l'effetto hover */
+}
+
+.file-upload span:hover {
+    background-color: var(--colore-primario); /* Colore pieno al passaggio del mouse */
+    color: var(--colore-chiaro); /* Colore del testo chiaro */
+    border-color: var(--colore-primario); /* Mantiene il bordo primario */
 }
 
 #file-name {
+    display: inline-block; /* Mantieni il testo in linea con il pulsante */
     padding: 10px;
-    border-bottom: 2px solid var(--colore-primario);
-    margin-left: 10px; /* Aggiungi margine a sinistra per distanziare */
+    border-bottom: 1px solid var(--colore-primario);
+    margin-left: 0;
+    font-size: 1.2rem;
 }
 
 .checkboxes {
-    margin: 20px 0;
+    margin: 30px 0;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .checkboxes label {
-    display: block;
-    margin-bottom: 10px;
+    display: block; /* Mantieni il comportamento predefinito */
+    margin-bottom: 10px; /* Spazio tra le righe delle checkbox */
+    align-items: center; /* Allinea verticalmente gli elementi all'interno del label */
+}
+
+.checkboxes label div {
+    display: inline-block; /* Mantieni il div del checkbox come inline-block */
+}
+
+.checkboxes input[type="checkbox"] {
+    display: none; /* Nascondi la checkbox originale */
+}
+
+.checkbox-custom {
+    vertical-align: middle; /* Centra verticalmente il checkbox */
+    width: 20px; /* Larghezza personalizzata */
+    height: 20px; /* Altezza personalizzata */
+    margin-bottom: 2px;
+    background-color: var(--colore-chiaro); /* Sfondo bianco */
+    border: 1px solid var(--colore-primario); /* Bordo arancio */
+    border-radius: 2px; /* Angoli arrotondati */
+    position: relative; /* Posizionamento relativo per il pseudo-elemento */
+    cursor: pointer; /* Cambia il cursore al passaggio sopra */
+    margin-right: 10px; /* Spazio tra la checkbox e il testo */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transizione per il cambio di colore */
+}
+
+/* Mostra la spunta quando la checkbox è selezionata */
+.checkboxes input[type="checkbox"]:checked + .checkbox-custom {
+    background-color: var(--colore-primario); /* Sfondo arancio */
+}
+
+.checkboxes input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: ""; /* Contenuto vuoto per il pseudo-elemento */
+    position: absolute; /* Posizionamento assoluto */
+    left: 5px; /* Posizionamento orizzontale */
+    top: 2px; /* Posizionamento verticale */
+    width: 8px; /* Larghezza della spunta */
+    height: 12px; /* Altezza della spunta */
+    border: solid var(--colore-chiaro); /* Colore della spunta */
+    border-width: 0 1px 1px 0; /* Stile della spunta */
+    transform: rotate(45deg); /* Ruota per formare la spunta */
+    opacity: 1; /* Mostra la spunta */
+}
+
+/* Rimuovi la spunta se non è selezionata */
+.checkboxes input[type="checkbox"]:not(:checked) + .checkbox-custom::after {
+    opacity: 0; /* Nascondi la spunta */
+}
+
+.privacy-link {
+    color: var(--colore-primario); /* Usa il colore primario per il link */
+    text-decoration: underline; /* Sottolinea il link */
 }
 
 .submit-btn {
-    padding: 10px 20px;
-    background-color: var(--colore-primario);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-family: inherit; /* Usa il font base del documento */
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 20px 50px; /* Allinea il padding con il pulsante Allega foto */
+    background-color: transparent; /* Sfondo trasparente */
+    color: var(--colore-primario); /* Colore del testo in base alla variabile primaria */
+    border: 1px solid var(--colore-primario); /* Bordo del colore primario */
+    border-radius: 8px; /* Bordi arrotondati */
+    text-align: center; /* Allineamento del testo */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: all 0.3s ease; /* Transizione fluida per l'effetto hover */
 }
 
 .submit-btn:hover {
-    background-color: darken(var(--colore-primario), 10%);
+    background-color: var(--colore-primario); /* Colore pieno al passaggio del mouse */
+    color: var(--colore-chiaro); /* Colore del testo chiaro */
+    border-color: var(--colore-primario); /* Mantiene il bordo primario */
 }
