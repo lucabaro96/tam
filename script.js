@@ -1,3 +1,15 @@
+document.addEventListener("scroll", function() {
+    const nav = document.querySelector("nav");
+    const scrollY = window.scrollY; // Posizione di scorrimento verticale
+    const triggerHeight = 180; // Imposta il punto in cui la navbar si fissa
+
+    if (scrollY > triggerHeight) {
+        nav.classList.add("fixed");
+    } else {
+        nav.classList.remove("fixed");
+    }
+});
+
 
 // Menu
 document.addEventListener('DOMContentLoaded', function () {
@@ -31,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Indica di scrollare verso il basso, fissato in viewport fino a tot. px
+
 window.addEventListener('scroll', function() {
     const scrollIndicator = document.querySelector('.scroll-indicator');
     const hero = document.querySelector('.hero');
@@ -47,6 +61,8 @@ window.addEventListener('scroll', function() {
         scrollIndicator.style.bottom = '30px'; // Fissato a 30px dal fondo della viewport
     }
 });
+
+// Animazione apertura chiusura voci dei Servizi
 
 document.querySelectorAll('.servizio-item').forEach(item => {
     item.addEventListener('click', () => {
@@ -167,9 +183,35 @@ document.addEventListener("DOMContentLoaded", function() {
 // ----------
 
 
-// Aggiornare nome file
+// Check OVER 2 MB
 
-function updateFileName(input) {
-    var fileName = input.files[0] ? input.files[0].name : "Nessun file scelto (PDF / JPG / PNG)";
-    document.getElementById("file-name").innerText = fileName;
-}
+
+// Funzione per aggiornare il nome del file e verificare la dimensione
+    function updateFileName(input) {
+        var file = input.files[0]; // Ottieni il file
+        var fileName = document.getElementById('file-name'); // Elemento per mostrare il nome
+
+        if (file) {
+            // Controllo dimensione massima (2 MB = 2048 KB = 2 * 1024 * 1024 bytes)
+            if (file.size > 2 * 1024 * 1024) {
+                alert("Il file supera la dimensione massima consentita di 2MB."); // Mostra il pop-up
+                fileName.textContent = "Carica file fino a 2MB (PDF, JPG, PNG)"; // Ripristina il testo
+                input.value = ""; // Resetta il campo file
+            } else {
+                fileName.textContent = file.name; // Aggiorna con il nome del file
+            }
+        } else {
+            fileName.textContent = "Nessun file scelto (PDF / JPG / PNG)";
+        }
+    }
+
+    // Prevenire l'invio del form se non è stato caricato un file valido
+    document.getElementById("form-preventivo").addEventListener("submit", function(event) {
+        var fileInput = document.querySelector('input[type="file"]');
+        var file = fileInput.files[0];
+
+        if (file && file.size > 2 * 1024 * 1024) {
+            event.preventDefault(); // Previeni l'invio del form
+            alert("Il file supera la dimensione massima consentita di 2MB."); // Mostra il pop-up
+        }
+    });

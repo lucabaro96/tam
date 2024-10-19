@@ -487,7 +487,7 @@ nav {
     background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
 
-#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container, #esperienza .container, #preventivo .container {
+#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container, #esperienza .container, #preventivo .container, #lavora-con-noi .container {
     display: flex; /* Assicurati che il contenitore sia un flexbox */
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
@@ -1114,6 +1114,18 @@ footer p {
         flex-direction: column;
         gap: 20px;
     }
+
+    .info {
+        font-size: 1rem;
+    }
+
+    .triangolo {
+        bottom: 10px;
+    }
+
+    .posizione p:nth-child(2) {
+        font-size: 1rem;
+    }
 }
 
 /*-----------*/
@@ -1414,9 +1426,9 @@ footer p {
 
 /*------------*/
 
-/* PAGINA PREVENTIVI */
+/* PAGINA PREVENTIVI - LAVORA CON NOI */
 
-#preventivo {
+#preventivo, #lavora-con-noi {
     padding: 70px 0;
     background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
@@ -1430,7 +1442,7 @@ footer p {
     width: 100%;
 }
 
-.container-preventivi-info {
+.container-form-info {
     display: flex; /* Cambia da grid a flexbox */
     align-items: center; /* Allinea verticalmente al centro */
     justify-content: center;
@@ -1439,7 +1451,7 @@ footer p {
     margin-bottom: 40px; /* Spazio inferiore per distanziare la riga successiva */
 }
 
-.container-preventivi-info.full-width {
+.container-form-info.full-width {
     display: block;
 }
 
@@ -1456,35 +1468,34 @@ footer p {
 }
 
 textarea.form-info {
-    height: 100px;
+    height: 200px;
     display: inline;
     background-color: transparent; /* Sfondo trasparente */
     resize: none; /* Impedisce il ridimensionamento */
 }
 
-.file-upload input[type="file"] {
+.file-upload input[type="file"], .cv-upload input[type="file"] {
     display: none;
 }
 
-.file-upload {
+.file-upload, .cv-upload {
     display: inline-block; /* Mantiene il pulsante in linea */
     width: auto; /* Adattamento del pulsante alla lunghezza del testo */
 }
 
-.file-upload span {
+.file-upload span, .cv-upload span {
     display: inline-block;
-    padding: 20px 50px; /* Aumenta il padding per un bottone più largo */
+    padding: 15px 20px; /* Aumenta il padding per un bottone più largo */
     background-color: transparent; /* Sfondo trasparente */
     color: var(--colore-primario); /* Colore del testo in base alla variabile primaria */
     border: 1px solid var(--colore-primario); /* Bordo del colore primario */
     border-radius: 8px; /* Bordi arrotondati */
-    text-align: center;
     cursor: pointer;
     white-space: nowrap; /* Evita che il testo vada a capo */
     transition: all 0.3s ease; /* Transizione fluida per l'effetto hover */
 }
 
-.file-upload span:hover {
+.file-upload span:hover, .cv-upload span:hover {
     background-color: var(--colore-primario); /* Colore pieno al passaggio del mouse */
     color: var(--colore-chiaro); /* Colore del testo chiaro */
     border-color: var(--colore-primario); /* Mantiene il bordo primario */
@@ -1492,14 +1503,14 @@ textarea.form-info {
 
 #file-name {
     display: inline-block; /* Mantieni il testo in linea con il pulsante */
-    padding: 10px;
+    padding: 10px 0;
     border-bottom: 1px solid var(--colore-primario);
     margin-left: 0;
     font-size: 1.2rem;
 }
 
 .checkboxes {
-    margin: 30px 0;
+    margin: 70px 0;
     font-size: 1rem;
     font-weight: 300;
 }
@@ -1563,7 +1574,8 @@ textarea.form-info {
 .submit-btn {
     font-family: inherit;
     font-size: 1rem;
-    padding: 20px 50px; /* Allinea il padding con il pulsante Allega foto */
+    padding: 20px 100px;
+    margin-bottom: 30px;
     background-color: transparent; /* Sfondo trasparente */
     color: var(--colore-primario); /* Colore del testo in base alla variabile primaria */
     border: 1px solid var(--colore-primario); /* Bordo del colore primario */
@@ -1577,4 +1589,42 @@ textarea.form-info {
     background-color: var(--colore-primario); /* Colore pieno al passaggio del mouse */
     color: var(--colore-chiaro); /* Colore del testo chiaro */
     border-color: var(--colore-primario); /* Mantiene il bordo primario */
+}
+
+.mandatory-field {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--colore-primario);
+}
+
+@media (max-width: 768px) {
+    .subtext {
+        font-size: 1rem; /* Riduci la dimensione del testo */
+        margin-bottom: 40px;
+    }
+
+    .container-form-info {
+        flex-direction: column; /* Disporre gli elementi in colonna */
+        gap: 20px; /* Riduci lo spazio tra gli elementi */
+        margin-bottom: 30px;
+        align-items: flex-start;
+    }
+
+    .form-info {
+        font-size: 1rem; /* Riduci la dimensione del font */
+        padding: 8px 0;
+    }
+
+    #file-name {
+        font-size: 1rem; /* Riduci la dimensione del testo del nome file */
+    }
+
+    .submit-btn {
+        padding: 15px 60px; /* Riduci la dimensione del bottone di invio */
+        font-size: 0.9rem; /* Riduci la dimensione del font */
+    }
+
+    .mandatory-field {
+        font-size: 0.8rem; /* Riduci la dimensione del testo per campi obbligatori */
+    }
 }
