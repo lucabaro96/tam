@@ -1605,7 +1605,6 @@ textarea.form-info {
 
     .container-form-info {
         flex-direction: column; /* Disporre gli elementi in colonna */
-        gap: 20px; /* Riduci lo spazio tra gli elementi */
         margin-bottom: 30px;
         align-items: flex-start;
     }
