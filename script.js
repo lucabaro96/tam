@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Indica di scrollare verso il basso, fissato in viewport fino a tot. px
 
-window.addEventListener('scroll', function() {
+function updateScrollIndicatorPosition() {
     const scrollIndicator = document.querySelector('.scroll-indicator');
     const hero = document.querySelector('.hero');
 
@@ -55,12 +55,19 @@ window.addEventListener('scroll', function() {
     // Controlla se la parte inferiore dell'header è raggiunta
     if (heroBottom <= window.innerHeight) {
         scrollIndicator.style.position = 'absolute'; // Cambia a absolute
-        scrollIndicator.style.bottom = '30px'; // Fissato a 30px dal fondo dell'header
+        scrollIndicator.style.bottom = '20px'; // Fissato a 30px dal fondo dell'header
     } else {
         scrollIndicator.style.position = 'fixed'; // Mantiene la posizione fissa
-        scrollIndicator.style.bottom = '30px'; // Fissato a 30px dal fondo della viewport
+        scrollIndicator.style.bottom = '20px'; // Fissato a 30px dal fondo della viewport
     }
-});
+}
+
+// Aggiungi l'ascoltatore di eventi per lo scroll
+window.addEventListener('scroll', updateScrollIndicatorPosition);
+
+// Esegui la funzione all'avvio per impostare la posizione correttamente
+window.addEventListener('load', updateScrollIndicatorPosition);
+
 
 // Animazione apertura chiusura voci dei Servizi
 
@@ -215,3 +222,29 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Il file supera la dimensione massima consentita di 2MB."); // Mostra il pop-up
         }
     });
+
+// Mostra di più - Galleria
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestione del pulsante "Mostra di più" per le coperture
+    document.getElementById('showMoreCoperture').addEventListener('click', function() {
+        toggleSection('moreCoperture', this);
+    });
+
+    // Gestione del pulsante "Mostra di più" per le chiusure
+    document.getElementById('showMoreChiusure').addEventListener('click', function() {
+        toggleSection('moreChiusure', this);
+    });
+});
+
+// Funzione per alternare la visualizzazione delle sezioni
+function toggleSection(sectionId, button) {
+    const section = document.getElementById(sectionId);
+    const isVisible = section.style.display === 'block';
+
+    // Cambia la visualizzazione della sezione
+    section.style.display = isVisible ? 'none' : 'block';
+
+    // Cambia il testo del pulsante
+    button.textContent = isVisible ? 'Mostra di più' : 'Mostra di meno';
+}

@@ -340,7 +340,7 @@ nav {
 /*-----------------------*/
 
 /* Copertina di pagina */
-.hero {
+.hero, .hero-gallery {
     background-color: var(--colore-primario); /* Sfondo arancione */
     height: calc(100vh - 195px); /* Altezza dell'intero schermo meno la nav */
     display: flex;
@@ -351,7 +351,7 @@ nav {
 }
 
 /* Layout della copertina */
-.hero .container {
+.hero .container, .hero-gallery .container {
     display: flex;
     justify-content: space-between; /* Testo a sinistra, video a destra */
     align-items: center;
@@ -361,13 +361,13 @@ nav {
 }
 
 /* Testo grande a sinistra */
-.hero-text, .header-pages-text {
+.hero-text, .header-pages-text, .hero-gallery-text {
     text-align: left; /* Testo allineato a sinistra */
     flex: 1;
     max-width: 67%; /* Limita la larghezza del blocco testo */
 }
 
-.hero-text h1, .header-pages-text h1 {
+.hero-text h1, .header-pages-text h1, .hero-gallery-text h1{
     color: var(--colore-chiaro); /* Testo principale in bianco */
     font-size: 5rem; /* Aumentato ulteriormente il testo */
     font-weight: 900;
@@ -429,7 +429,7 @@ nav {
         height: 120px; /* Altezza fissa per la barra di navigazione */
     }
     
-    .hero {
+    .hero, .hero-gallery {
         height: auto; /* Permetti alla sezione di adattarsi in altezza */
         padding-top: 20px;
         flex-direction: column; /* Disposizione verticale per dispositivi mobili */
@@ -441,11 +441,11 @@ nav {
         justify-content: center; /* Centrare anche in verticale */
     }
 
-    .hero-text {
+    .hero-text, .hero-gallery-text {
         max-width: 100%; /* Permetti al testo di occupare l'intera larghezza */
     }
 
-    .hero-text h1, .header-pages-text h1 {
+    .hero-text h1, .header-pages-text h1, .hero-gallery-text h1 {
         font-size: 3rem; /* Ridimensiona il testo per schermi piccoli */
         margin-bottom: 30px; /* Riduci il margine inferiore */
     }
@@ -487,7 +487,7 @@ nav {
     background-color: var(--colore-chiaro); /* Sfondo grigio chiaro */
 }
 
-#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container, #esperienza .container, #preventivo .container, #lavora-con-noi .container {
+#settori .container, #contatti .container, #servizi .container, #materiali .container, footer .container, #esperienza .container, #preventivo .container, #lavora-con-noi .container, #gallery .container {
     display: flex; /* Assicurati che il contenitore sia un flexbox */
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
@@ -495,7 +495,7 @@ nav {
 }
 
 /* Stile per il titolo */
-#settori h2, #servizi h2, #materiali h2, #azienda-settori h2, #esperienza h2, #mission h2 {
+#settori h2, #servizi h2, #materiali h2, #azienda-settori h2, #esperienza h2, #mission h2, #gallery h2 {
     color: var(--colore-primario); /* Arancione */
     font-size: 2rem; /* Grandezza del testo */
     font-weight: 800;
@@ -1260,6 +1260,7 @@ footer p {
     -webkit-overflow-scrolling: touch; /* Scorrimento fluido su dispositivi touch */
     scroll-behavior: smooth; /* Scorrimento fluido */
     margin: 30px 0;
+    gap: 40px;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -1297,7 +1298,6 @@ footer p {
     border: 1px solid var(--colore-primario); /* Bordo arancione */
     border-radius: 8px; /* Angoli arrotondati */
     padding: 10px 20px; /* Spazio interno */
-    margin-right: 40px; /* Spazio tra le carte */
     height: 200px;
     width: 400px; /* Larghezza fissa */
     font-size: 1.8em; /* Aumenta la dimensione del testo */
@@ -1625,5 +1625,87 @@ textarea.form-info {
 
     .mandatory-field {
         font-size: 0.8rem; /* Riduci la dimensione del testo per campi obbligatori */
+    }
+}
+
+/*-------------*/
+
+/* PAGINA INDUSTRIA - SPORT - OUTDOOR - ADVERTISING - TRASPORTI */
+
+/* Griglia per le immagini */
+#gallery {
+    padding: 70px 0;
+}
+
+.hero-gallery-text p {
+    color: var(--colore-chiaro)
+}
+
+.hero-gallery-text p:nth-of-type(1) {
+    margin-bottom: 30px;
+}
+
+
+/* Griglia per le immagini */
+.gallery-grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.column-full {
+    width: 100%;
+}
+
+.column-half {
+    width: calc(50% - 10px); /* Per avere due colonne con un piccolo gap */
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Pulsante per mostrare di più */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.show-more-btn {
+    padding: 10px 20px;
+    background-color: var(--colore-primario);
+    color: var(--colore-chiaro);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.show-more-btn:hover {
+    background-color: darken(var(--colore-primario), 10%);
+}
+
+/* Sezione nascosta */
+.hidden-section {
+    display: none; /* Nascosto inizialmente */
+}
+
+/* Media query per migliorare l'aspetto su dispositivi mobili */
+@media (max-width: 768px) {
+    .hero-gallery {
+        padding-top: 0;
+        padding: 65px 0 70px 0;
+    }
+
+    .hero-gallery .scroll-indicator {
+        display: none;
+    }
+    .column-half {
+        width: 100%; /* Le immagini diventano a tutta larghezza sui dispositivi mobili */
     }
 }
