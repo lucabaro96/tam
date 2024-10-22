@@ -1636,6 +1636,7 @@ textarea.form-info {
 
 #gallery {
     padding: 70px 0;
+    background-color: var(--colore-chiaro);
 }
 
 #gallery h2 {
@@ -1704,8 +1705,11 @@ textarea.form-info {
 
 /* Sezione nascosta */
 .hidden-section {
+    width: 100%;
     display: none; /* Nascosto inizialmente */
+    transition: all 0.5s ease; /* Aggiunge una transizione fluida */
 }
+
 
 /* Media query per migliorare l'aspetto su dispositivi mobili */
 @media (max-width: 768px) {

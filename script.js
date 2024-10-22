@@ -1,16 +1,3 @@
-document.addEventListener("scroll", function() {
-    const nav = document.querySelector("nav");
-    const scrollY = window.scrollY; // Posizione di scorrimento verticale
-    const triggerHeight = 180; // Imposta il punto in cui la navbar si fissa
-
-    if (scrollY > triggerHeight) {
-        nav.classList.add("fixed");
-    } else {
-        nav.classList.remove("fixed");
-    }
-});
-
-
 // Menu
 document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburger');
@@ -42,6 +29,40 @@ document.addEventListener('DOMContentLoaded', function () {
         icon.innerHTML = dropdownContent.classList.contains('dropdown-active') ? '&#9650;' : '&#9660;';
     });
 });
+
+
+// Mostra di più - Galleria
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Gestione del pulsante "Mostra di più" per le coperture
+    document.getElementById('showMoreCoperture').addEventListener('click', function() {
+        toggleSection('moreCoperture', this);
+    });
+
+    // Gestione del pulsante "Mostra di più" per le chiusure
+    document.getElementById('showMoreChiusure').addEventListener('click', function() {
+        toggleSection('moreChiusure', this);
+    });
+});
+
+// Funzione per alternare la visualizzazione delle sezioni
+function toggleSection(sectionId, button) {
+    const section = document.getElementById(sectionId);
+    const isVisible = section.style.display === 'block';
+
+    // Cambia la visualizzazione della sezione
+    section.style.display = isVisible ? 'none' : 'block';
+
+    // Cambia il testo del pulsante
+    button.textContent = isVisible ? 'Mostra di più' : 'Mostra di meno';
+
+    // Sposta il pulsante verso il basso quando viene visualizzata la sezione
+    if (!isVisible) {
+        button.style.marginTop = section.offsetHeight;  // Sposta il pulsante in basso
+    } else {
+        button.style.marginTop = '0';  // Ripristina la posizione originale del pulsante
+    }
+}
 
 // Indica di scrollare verso il basso, fissato in viewport fino a tot. px
 
@@ -222,33 +243,6 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Il file supera la dimensione massima consentita di 2MB."); // Mostra il pop-up
         }
     });
-
-// Mostra di più - Galleria
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Gestione del pulsante "Mostra di più" per le coperture
-    document.getElementById('showMoreCoperture').addEventListener('click', function() {
-        toggleSection('moreCoperture', this);
-    });
-
-    // Gestione del pulsante "Mostra di più" per le chiusure
-    document.getElementById('showMoreChiusure').addEventListener('click', function() {
-        toggleSection('moreChiusure', this);
-    });
-});
-
-// Funzione per alternare la visualizzazione delle sezioni
-function toggleSection(sectionId, button) {
-    const section = document.getElementById(sectionId);
-    const isVisible = section.style.display === 'block';
-
-    // Cambia la visualizzazione della sezione
-    section.style.display = isVisible ? 'none' : 'block';
-
-    // Cambia il testo del pulsante
-    button.textContent = isVisible ? 'Mostra di più' : 'Mostra di meno';
-}
-
 
 
 
