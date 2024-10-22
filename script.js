@@ -248,3 +248,8 @@ function toggleSection(sectionId, button) {
     // Cambia il testo del pulsante
     button.textContent = isVisible ? 'Mostra di più' : 'Mostra di meno';
 }
+
+
+
+
+
