@@ -48,21 +48,23 @@ document.addEventListener('DOMContentLoaded', function() {
 // Funzione per alternare la visualizzazione delle sezioni
 function toggleSection(sectionId, button) {
     const section = document.getElementById(sectionId);
-    const isVisible = section.style.display === 'block';
+    const isVisible = section.style.maxHeight && section.style.maxHeight !== "0px";
 
-    // Cambia la visualizzazione della sezione
-    section.style.display = isVisible ? 'none' : 'block';
-
-    // Cambia il testo del pulsante
-    button.textContent = isVisible ? 'Mostra di più' : 'Mostra di meno';
-
-    // Sposta il pulsante verso il basso quando viene visualizzata la sezione
+    // Espandi o riduci la sezione senza influenzare il pulsante
     if (!isVisible) {
-        button.style.marginTop = section.offsetHeight;  // Sposta il pulsante in basso
+        section.style.display = 'block'; // Assicura che la sezione sia visibile
+        section.style.maxHeight = section.scrollHeight + "px"; // Espande la sezione
+        button.textContent = 'Mostra di meno';
     } else {
-        button.style.marginTop = '0';  // Ripristina la posizione originale del pulsante
+        section.style.maxHeight = '0'; // Riduci la sezione
+        setTimeout(() => {
+            section.style.display = 'none'; // Nascondi completamente dopo la transizione
+        }, 500); // Sincronizzato con la transizione
+        button.textContent = 'Mostra di più';
     }
 }
+
+
 
 // Indica di scrollare verso il basso, fissato in viewport fino a tot. px
 

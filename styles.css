@@ -369,6 +369,10 @@ nav {
     max-width: 67%; /* Limita la larghezza del blocco testo */
 }
 
+.hero-gallery-text {
+    max-width: 80%;
+}
+
 .hero-text h1, .header-pages-text h1, .hero-gallery-text h1{
     color: var(--colore-chiaro); /* Testo principale in bianco */
     font-size: 5rem; /* Aumentato ulteriormente il testo */
@@ -1706,8 +1710,9 @@ textarea.form-info {
 /* Sezione nascosta */
 .hidden-section {
     width: 100%;
-    display: none; /* Nascosto inizialmente */
-    transition: all 0.5s ease; /* Aggiunge una transizione fluida */
+    max-height: 0; /* Altezza iniziale a zero */
+    overflow: hidden;
+    transition: max-height 0.5s ease; /* Transizione fluida */
 }
 
 
