@@ -375,7 +375,7 @@ nav {
 
 .hero-text h1, .header-pages-text h1, .hero-gallery-text h1{
     color: var(--colore-chiaro); /* Testo principale in bianco */
-    font-size: 5rem; /* Aumentato ulteriormente il testo */
+    font-size: 4rem; /* Aumentato ulteriormente il testo */
     font-weight: 900;
     margin-bottom: 60px;
     line-height: 0.85; /* Ridotta l'interlinea */
