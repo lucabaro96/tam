@@ -82,7 +82,7 @@ header.hero, section {
 nav {
     background-color: var(--colore-chiaro);
     height: 180px; /* Altezza fissa per la barra di navigazione */
-    padding-top: 15px; /* Spazio di 50px dal bordo superiore */
+    padding-top: 15px; /* Spazio di 15px dal bordo superiore */
 }
 
 
@@ -237,7 +237,7 @@ nav {
 @media (max-width: 768px) {
 
     .logo img {
-        width: 125px;
+        width: 150px;
     }
 
     .hamburger {
@@ -250,6 +250,7 @@ nav {
 
     nav {
         margin-bottom: -1px;
+        padding-top: 22px; /* Spazio di 15px dal bordo superiore */
     }
 
     .nav-links {
@@ -432,7 +433,7 @@ nav {
 /* Media Queries per il responsive design */
 @media (max-width: 768px) {
     nav {
-        height: 120px; /* Altezza fissa per la barra di navigazione */
+        height: 65px; /* Altezza fissa per la barra di navigazione */
     }
     
     .hero, .hero-gallery {
@@ -452,7 +453,7 @@ nav {
     }
 
     .hero-text h1, .header-pages-text h1, .hero-gallery-text h1 {
-        font-size: 3rem; /* Ridimensiona il testo per schermi piccoli */
+        font-size: 2.7rem; /* Ridimensiona il testo per schermi piccoli */
         margin-bottom: 30px; /* Riduci il margine inferiore */
     }
 
@@ -474,7 +475,7 @@ nav {
     .hero-logo video {
         position: relative; /* Rimuovi il posizionamento assoluto */
         bottom: -60px; /* Mantieni il video che esce verso il basso di 30px */
-        max-width: 300px; /* Riduci la dimensione del video */
+        max-width: 250px; /* Riduci la dimensione del video */
     }
 
     .scroll-indicator {
@@ -560,7 +561,7 @@ nav {
     }
 
     .settore {
-        min-height: 200px; /* Altezza minima delle celle */
+        min-height: 170px; /* Altezza minima delle celle */
     }
 }
 
@@ -1737,6 +1738,6 @@ textarea.form-info {
 
     /* Modifica l'altezza delle immagini sui dispositivi mobili per adattarsi meglio */
     .responsive-img {
-        height: 300px; /* Altezza fissa ridotta per dispositivi mobili */
+        height: 250px; /* Altezza fissa ridotta per dispositivi mobili */
     }
 }
