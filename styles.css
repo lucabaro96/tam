@@ -1158,13 +1158,17 @@ footer p {
 }
 
 .video-container {
-    width:50%;
+    width: 50%;
     flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .video-container video {
     height: auto;
-    width: 100%;
+    width: 105%;
 }
 
 .text-container h1 {
@@ -1189,6 +1193,7 @@ footer p {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-top: 40px;
     }
 
     .video-container {
@@ -1334,7 +1339,7 @@ footer p {
 
     .settore-card {
         height: 200px;
-        width: 220px; /* Larghezza fissa */
+        width: 240px; /* Larghezza fissa */
     }
 }
 
@@ -1445,6 +1450,7 @@ footer p {
 }
 
 .subtext {
+    width: 67%;
     font-size: 1.2rem;
     margin-bottom: 60px;
 }
@@ -1612,6 +1618,7 @@ textarea.form-info {
     .subtext {
         font-size: 1rem; /* Riduci la dimensione del testo */
         margin-bottom: 40px;
+        width: 100%;
     }
 
     .container-form-info {
@@ -1725,7 +1732,7 @@ textarea.form-info {
 @media (max-width: 768px) {
     .hero-gallery {
         padding-top: 0;
-        padding: 65px 0 70px 0;
+        padding: 90px 0 100px 0;
     }
 
     .hero-gallery .scroll-indicator {

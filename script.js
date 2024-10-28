@@ -64,6 +64,11 @@ function toggleSection(sectionId, button) {
     }
 }
 
+AOS.init({
+    duration: 800, // Durata dell'animazione in ms
+    easing: 'ease', // Easing dell'animazione
+    once: true, // Animazione solo al primo scroll
+  });
 
 
 // Indica di scrollare verso il basso, fissato in viewport fino a tot. px
