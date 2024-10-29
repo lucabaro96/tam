@@ -1,3 +1,63 @@
+// Scroll Slideshow Azienda
+
+// Pulsanti per scrollare a sinistra e a destra
+document.querySelector('.right-arrow').addEventListener('click', () => {
+    document.querySelector('.scroll-container').scrollBy({left: 400, behavior: 'smooth'}); // Modifica la quantità in base alla larghezza delle cards
+});
+
+document.querySelector('.left-arrow').addEventListener('click', () => {
+    document.querySelector('.scroll-container').scrollBy({left: -400, behavior: 'smooth'}); // Modifica la quantità in base alla larghezza delle cards
+});
+
+// Linee verticali lati slideshow
+document.addEventListener("DOMContentLoaded", function() {
+    const scrollContainer = document.querySelector('.scroll-container');
+    const leftLine = document.querySelector('.left-line');
+    const rightLine = document.querySelector('.right-line');
+
+    const updateLineVisibility = () => {
+        const scrollLeft = scrollContainer.scrollLeft;
+        const scrollWidth = scrollContainer.scrollWidth;
+        const containerWidth = scrollContainer.clientWidth;
+
+        // Controlla se c'è spazio a sinistra
+        if (scrollLeft > 0) {
+            leftLine.style.opacity = '1'; // Mostra la linea a sinistra
+        } else {
+            leftLine.style.opacity = '0'; // Nascondi la linea a sinistra
+        }
+
+        // Controlla se c'è spazio a destra
+        if (scrollLeft + containerWidth < scrollWidth) {
+            rightLine.style.opacity = '1'; // Mostra la linea a destra
+        } else {
+            rightLine.style.opacity = '0'; // Nascondi la linea a destra
+        }
+    };
+
+    // Aggiungi l'evento scroll
+    scrollContainer.addEventListener('scroll', updateLineVisibility);
+    
+    // Inizializza la visibilità delle linee
+    updateLineVisibility();
+
+    // Event listeners per le frecce
+    document.querySelector('.left-arrow').addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: -containerWidth,
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('.right-arrow').addEventListener('click', () => {
+        scrollContainer.scrollBy({
+            left: containerWidth,
+            behavior: 'smooth'
+        });
+    });
+});
+// ----------
+
 // Menu
 document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('hamburger');
@@ -64,13 +124,6 @@ function toggleSection(sectionId, button) {
     }
 }
 
-AOS.init({
-    duration: 800, // Durata dell'animazione in ms
-    easing: 'ease', // Easing dell'animazione
-    once: true, // Animazione solo al primo scroll
-  });
-
-
 // Indica di scrollare verso il basso, fissato in viewport fino a tot. px
 
 function updateScrollIndicatorPosition() {
@@ -116,6 +169,7 @@ document.querySelectorAll('.servizio-item').forEach(item => {
 });
 
 
+
 // Pulsante per tornare su
 document.getElementById('scrollTopButton').addEventListener('click', function() {
     window.scrollTo({
@@ -155,67 +209,6 @@ window.addEventListener('scroll', function() {
         }
     });
 });
-
-
-// Scroll Slideshow Azienda
-
-// Pulsanti per scrollare a sinistra e a destra
-document.querySelector('.right-arrow').addEventListener('click', () => {
-    document.querySelector('.scroll-container').scrollBy({left: 400, behavior: 'smooth'}); // Modifica la quantità in base alla larghezza delle cards
-});
-
-document.querySelector('.left-arrow').addEventListener('click', () => {
-    document.querySelector('.scroll-container').scrollBy({left: -400, behavior: 'smooth'}); // Modifica la quantità in base alla larghezza delle cards
-});
-
-// Linee verticali lati slideshow
-document.addEventListener("DOMContentLoaded", function() {
-    const scrollContainer = document.querySelector('.scroll-container');
-    const leftLine = document.querySelector('.left-line');
-    const rightLine = document.querySelector('.right-line');
-
-    const updateLineVisibility = () => {
-        const scrollLeft = scrollContainer.scrollLeft;
-        const scrollWidth = scrollContainer.scrollWidth;
-        const containerWidth = scrollContainer.clientWidth;
-
-        // Controlla se c'è spazio a sinistra
-        if (scrollLeft > 0) {
-            leftLine.style.opacity = '1'; // Mostra la linea a sinistra
-        } else {
-            leftLine.style.opacity = '0'; // Nascondi la linea a sinistra
-        }
-
-        // Controlla se c'è spazio a destra
-        if (scrollLeft + containerWidth < scrollWidth) {
-            rightLine.style.opacity = '1'; // Mostra la linea a destra
-        } else {
-            rightLine.style.opacity = '0'; // Nascondi la linea a destra
-        }
-    };
-
-    // Aggiungi l'evento scroll
-    scrollContainer.addEventListener('scroll', updateLineVisibility);
-    
-    // Inizializza la visibilità delle linee
-    updateLineVisibility();
-
-    // Event listeners per le frecce
-    document.querySelector('.left-arrow').addEventListener('click', () => {
-        scrollContainer.scrollBy({
-            left: -containerWidth,
-            behavior: 'smooth'
-        });
-    });
-
-    document.querySelector('.right-arrow').addEventListener('click', () => {
-        scrollContainer.scrollBy({
-            left: containerWidth,
-            behavior: 'smooth'
-        });
-    });
-});
-// ----------
 
 
 // Check OVER 2 MB
