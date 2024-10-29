@@ -770,7 +770,7 @@ nav {
 /* Hover che inverte i colori */
 .contatto:hover {
     background-color: var(--colore-primario); /* Sfondo arancione */
-    color: #fff; /* Testo bianco */
+    color: var(--colore-chiaro); /* Testo bianco */
 }
 
 .contatto:hover .triangolo, .settore-card:hover .triangolo, .settore-card-hero:hover .triangolo {
@@ -1323,6 +1323,10 @@ footer p {
     overflow: hidden;
 }
 
+.settore-card-hero {
+    border: none;
+}
+
 .card-image {
     position: absolute;
     top: 0;
@@ -1331,11 +1335,12 @@ footer p {
     height: 100%;
     object-fit: cover;
     z-index: 1; /* Dietro al testo */
-    transition: opacity 0.3s ease, filter 0.3s ease;
+    transition: opacity 0.3s ease, filter 0.3s ease, scale 0.8s ease;
 }
 
 .settore-card-hero:hover .card-image {
-    opacity: 0.4; /* Regola l'opacità per scurire l'immagine */
+    opacity: 0.2; 
+    scale: 1.1;
 }
 
 .settore-card-hero span, 
@@ -1451,7 +1456,6 @@ footer p {
     justify-content: center;
     align-items: start;
     gap: 30px;
-    text-align: justify;
 }
 
 /* Responsività */
