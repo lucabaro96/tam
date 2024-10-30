@@ -1336,11 +1336,13 @@ footer p {
     object-fit: cover;
     z-index: 1; /* Dietro al testo */
     transition: opacity 0.3s ease, filter 0.3s ease, scale 0.8s ease;
+    filter: grayscale(100%);
 }
 
 .settore-card-hero:hover .card-image {
     opacity: 0.2; 
     scale: 1.1;
+    filter: grayscale(0%);
 }
 
 .settore-card-hero span, 
