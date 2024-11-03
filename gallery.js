@@ -30,3 +30,43 @@ function toggleSection(sectionId, button) {
         button.textContent = 'Mostra di più';
     }
 }
+
+// Pulsante per tornare su
+document.getElementById('scrollTopButton').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Scroll fluido
+    });
+});
+
+// Funzione per mostrare/nascondere il pulsante e gestire i colori
+window.addEventListener('scroll', function() {
+    const scrollTopButton = document.getElementById('scrollTopButton');
+    const scrollPosition = window.scrollY;
+    
+    // Rende il pulsante visibile dopo 200px di scroll
+    if (scrollPosition > 200) {
+        scrollTopButton.classList.add('visible');
+    } else {
+        scrollTopButton.classList.remove('visible');
+    }
+
+    // Cambia colore in base alla sezione attuale
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+            const bgColor = getComputedStyle(section).backgroundColor;
+            if (section.classList.contains('orange-bg')) { // Sezione con sfondo arancione
+                scrollTopButton.classList.add('on-orange-bg');
+                scrollTopButton.classList.remove('on-light-bg', 'on-dark-bg');
+            } else if (bgColor === 'rgb(238, 237, 237)') { // Sfondo chiaro (equivalente a var(--colore-chiaro))
+                scrollTopButton.classList.add('on-light-bg');
+                scrollTopButton.classList.remove('on-dark-bg', 'on-orange-bg');
+            } else if (bgColor === 'rgb(0, 0, 0)') { // Sfondo nero
+                scrollTopButton.classList.add('on-dark-bg');
+                scrollTopButton.classList.remove('on-light-bg', 'on-orange-bg');
+            }
+        }
+    });
+});

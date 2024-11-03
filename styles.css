@@ -17,6 +17,10 @@ a {
     color: inherit;
 }
 
+strong {
+    color: var(--colore-primario);
+}
+
 /* Aggiungi una classe per l'effetto slide out */
 .page-slide-out {
     animation: slide-out 0.5s forwards ease-in-out;
@@ -49,12 +53,15 @@ a {
     }
 }
 
-
 /* Contenitore centrale con larghezza massima */
 .container {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 0 15px; /* Padding per evitare che tocchi i bordi */
+    padding: 0 20px; /* Padding per evitare che tocchi i bordi */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
 }
 
 /* Sfondi a piena larghezza */
@@ -68,15 +75,6 @@ header.hero, section {
     gap: 20px;
     justify-content: space-between;
 }
-
-.container {
-    box-sizing: border-box;
-    padding: 0px 20px;
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-}
-
 
 /* Stile della barra di navigazione */
 nav {
@@ -1235,7 +1233,7 @@ footer p {
 }
 
 .header-text p {
-    width: 50%;
+    width: 75%;
     margin: 30px 0 0; /* Spazio sopra il paragrafo */
 }
 
@@ -1276,7 +1274,7 @@ footer p {
     -webkit-overflow-scrolling: touch; /* Scorrimento fluido su dispositivi touch */
     scroll-behavior: smooth; /* Scorrimento fluido */
     margin: 30px 0;
-    gap: 40px;
+    gap: 30px;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -1314,8 +1312,8 @@ footer p {
     border: 1px solid var(--colore-primario); /* Bordo arancione */
     border-radius: 8px; /* Angoli arrotondati */
     padding: 10px 20px; /* Spazio interno */
-    height: 200px;
-    width: 400px; /* Larghezza fissa */
+    height: 300px;
+    width: 600px; /* Larghezza fissa */
     font-size: 1.8em; /* Aumenta la dimensione del testo */
     color: var(--colore-primario); /* Colore arancione */
     font-weight: bold; /* Testo in grassetto */
