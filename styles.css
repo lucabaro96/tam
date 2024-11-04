@@ -1226,7 +1226,8 @@ footer p {
 
 .video-container video {
     height: auto;
-    width: 105%;
+    object-fit: cover;
+    width: 100%;
 }
 
 .text-container h1 {
